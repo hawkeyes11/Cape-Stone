@@ -74,3 +74,12 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+
+div#login {
+  display: flex;
+  border: black solid;
+}
+
+</style>
