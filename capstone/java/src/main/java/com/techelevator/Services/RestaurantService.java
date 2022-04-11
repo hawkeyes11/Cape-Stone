@@ -30,7 +30,7 @@ public class RestaurantService implements RestaurantServiceAPI {
         List<Restaurant> restaurantList = new ArrayList<>();
         try {
             ResponseEntity<String> response = restTemplate.exchange("https://api.yelp.com/v3/businesses/search?location=" + zipcode + "&categories=food", HttpMethod.GET, entity, String.class);
-             restaurantList = jsonMapping(response);
+            restaurantList = jsonMapping(response);
 
         } catch (RestClientResponseException | ResourceAccessException e) {
             System.out.println(e);
@@ -64,9 +64,11 @@ public class RestaurantService implements RestaurantServiceAPI {
                     addressList.add(locationEl.next().asText());
                 }
 
+                String url = currentElement.get("image_url").asText();
+
                 String phoneNumber = currentElement.get("display_phone").asText();
 
-                double distance = currentElement.get("distance").asDouble();
+                double distance = convertToMiles(currentElement.get("distance").asDouble());
 
                 Iterator<JsonNode> category = currentElement.get("categories").elements();
                 List<String> categories = new ArrayList<>();
@@ -80,12 +82,18 @@ public class RestaurantService implements RestaurantServiceAPI {
                     transactions.add(transaction.next().asText());
                 }
 
-                restaurantList.add(new Restaurant(name, reviewCount, rating, categories, addressList, phoneNumber, distance, transactions));
+                boolean isClosing = currentElement.get("is_closed").asBoolean();
+
+                restaurantList.add(new Restaurant(name, reviewCount, rating, categories, addressList, phoneNumber, distance, transactions, isClosing, url));
             }
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
 
         return restaurantList;
+    }
+
+    private double convertToMiles(double meters) {
+        return (meters / 1609.34);
     }
 }
