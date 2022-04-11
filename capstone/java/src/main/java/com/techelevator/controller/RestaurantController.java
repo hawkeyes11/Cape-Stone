@@ -33,17 +33,20 @@ public class RestaurantController {
 //    @GetMapping("/join/{id}")
 //    public List<Restaurant> getJoin(@PathVariable int id) {
 //        // get location from database where id == db group id
+//        // check if expiration date has not passed if not reject
 //        return restaurantServiceAPI.getRestaurants(location);
 //    }
 
     @ResponseStatus(HttpStatus.ACCEPTED)
     @PostMapping("/{id}")
     public void addRestaurantToGroupList(@RequestBody Restaurant restaurant) {
+        // check if expiration date has not passed if not reject
         //add data from restaurant to database
     }
 
 //    @GetMapping("/{id}")
 //    public List<Restaurant> getGroupRestaurants(@RequestParam(value = "location") String location) {
+//        // check if expiration date has not passed if not reject
 //        //get all restaurants in the group's database of liked restaurants
 //    }
 
