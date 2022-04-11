@@ -8,17 +8,17 @@
   </div>
 </template>
 
+
+
 <style>
 html {
   font-size: 16px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
 body {
   display: flex;
   background-color: whitesmoke;
 }
-
 
 /* @media (min-width: 1024px) {
   #body-grid {
