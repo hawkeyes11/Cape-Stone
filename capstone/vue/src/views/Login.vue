@@ -74,3 +74,73 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+
+
+div.login {
+  
+  align-content: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  
+  background-color: aqua;
+}
+label {
+  display: flex;
+  padding: 10px;
+}
+label.username {
+  display: flex;
+  padding: 0px 0px 5px 0px;
+}
+input#username {
+  display: flex;
+  margin: 5px
+}
+label.password {
+  display: flex;
+  flex-direction: row;
+}
+input#password {
+  display: flex;
+  margin: 5px
+}
+#register {
+  display: flex;
+  flex-direction: row;
+}
+/* @media (min-width: 1024px) {
+  #body-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "header header header nav"
+      "main main main main"
+      "footer footer footer footer";
+    column-gap: 15px;
+  }
+}
+@media (max-width: 1024px) {
+  #body-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "header header header nav"
+      "main main main main"
+      "footer footer footer footer";
+    column-gap: 35px;
+  }
+}
+
+@media (max-width: 450px) {
+#main-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+  } */
+
+
+</style>
