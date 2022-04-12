@@ -33,7 +33,7 @@
         required
       />
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+      <button @click="checkPassword" class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
     </form>
@@ -55,6 +55,7 @@ export default {
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
+      validPassword: false
     };
   },
   methods: {
@@ -62,6 +63,9 @@ export default {
       if (this.user.password != this.user.confirmPassword) {
         this.registrationErrors = true;
         this.registrationErrorMsg = 'Password & Confirm Password do not match.';
+      } else if(!this.validPassword) {
+        this.registrationErrors = true;
+        this.registrationErrorMsg = 'Your password does not match the criteria';
       } else {
         authService
           .register(this.user)
@@ -86,6 +90,14 @@ export default {
       this.registrationErrors = false;
       this.registrationErrorMsg = 'There were problems registering this user.';
     },
+    checkPassword() {
+      const validation = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+      if(this.user.password.match(validation)) {
+        this.validPassword = true;
+      } else {
+        this.validPassword = false;
+      }
+    }
   },
 };
 </script>
