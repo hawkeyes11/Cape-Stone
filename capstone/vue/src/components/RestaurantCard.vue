@@ -1,28 +1,32 @@
 <template>
   <div class="restaurant-cards">
     <div class="card">
-    <h2 class="name">Restaurant Name: {{ restaurant.name }}</h2>
-    <p class="address">
-      Address: {{ restaurant.display_address[0] }}
-      {{ restaurant.display_address[1] }}
-    </p>
-    <a :href='"tel:" + restaurant.display_phone' class="phone">Call to Order: {{ restaurant.display_phone }}</a>
+      <h2 class="name">{{ restaurant.name }}</h2>
+      <div class="address">
+        Address: {{ restaurant.display_address[0] }}
+        {{ restaurant.display_address[1] }}
+      </div>
+      <a :href="'tel:' + restaurant.display_phone" class="phone"
+        >Call to Order: {{ restaurant.display_phone }}</a
+      >
 
+      <!-- need to round off number -->
+      <p class="distance">Distance in miles: {{ restaurant.distance }}</p>
 
- <!-- need to round off number -->
-    <p class="distance">Distance in miles: {{ restaurant.distance }}</p>
+      <p class="hours">{{ restaurant.isClosed ? "Closed" : "Open now" }}</p>
 
-    <p>{{restaurant.isClosed ? 'Closed' : 'Open now' }}</p>
+      <!-- need to display stars not number -->
+      <div class="rating">
+        Average Rating: {{ restaurant.rating }} <br />
+        Amount of Reviews: {{ restaurant.reviewCount }}
+      </div>
 
-<!-- need to display stars not number -->
-    <div class="rating">Average Rating: {{ restaurant.rating }} <br> Amount of Reviews:
-    {{ restaurant.reviewCount }}</div>
+      <p v-for="t in restaurant.transactions" :key="t.id">{{ t }}</p>
 
+      <img :src="restaurant.url" />
 
-    <img :src="restaurant.url" />
-
-    <p v-for="t in restaurant.transactions" :key="t.id">{{ t }}</p>
-    <p v-for="c in restaurant.categories" :key="c.id">{{ c }}</p>
+      <!-- TODO correctly concat strings of categories -->
+      <p v-for="c in restaurant.categories" :key="c.id">{{ c }}</p>
     </div>
   </div>
 </template>
@@ -39,18 +43,47 @@ export default {
 <style scoped>
 div.card {
   border-radius: 20px;
-  background-color: #FBF2EB;
+  background-color: #fbf2eb;
   position: relative;
   display: flex;
   flex-direction: column;
   /* height: 35rem; */
   justify-content: center;
-  align-items: center;
+  align-items: left;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 3em;
   /* margin: 4rem auto; */
-  margin-top: 5em;
-  margin-bottom: 50px;
-  padding-bottom: 75px;
+  margin-top: 3em;
+  
+  width: 100%;
 }
+div > h2.name {
+  display: flex;
+  font-size: 2rem;
+  }
+a.phone {
+  display: flex;
+  padding-top: 1em;
+}
+div.address {
+  display: flex;
+  padding-top: 1em;
+}
+div.distance {
+  display: flex;
+}
+div.rating {
+  display: flex;
+}
+div.phone {
+  display: flex;
+}
+div.hours {
+  display: flex;
+}
+
+
 /*form.form-signin {
   display: flex;
   flex-direction: column;
