@@ -20,13 +20,26 @@ html {
 }
 body {
   display: flex;
+  /* flex-direction: column; */
   background-color: #AC8A6D;
   justify-content: center;
   height: 50vh;
 }
-div#nav {
+div#app > div#nav {
+  display: flex;
+  flex-direction: row;
   font-family: monospace;
   font-size: 16px;
+  padding-bottom: 1rem;
+}
+div#app > div#nav > #home {
+  display: flex;
+}
+div#app > div#nav > #card {
+  display: flex;
+}
+div#app > div#nav > #logout {
+  display: flex;
 }
 
 /* @media (min-width: 1024px) {
