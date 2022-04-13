@@ -37,7 +37,7 @@ export default {
   name: "header",
   data() {
     // return {
-    // //   image: 
+    //   image: 
     //   credentials: this.$store.state,
     //   isLoggedIn: 
     // };

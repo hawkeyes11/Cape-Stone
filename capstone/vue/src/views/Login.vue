@@ -31,8 +31,8 @@
         v-model="user.password"
         required
       />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
       <button type="submit">Sign in</button>
+      <router-link :to="{ name: 'register' }">Need an account?</router-link>
     </form>
   </div>
 </template>
@@ -76,42 +76,73 @@ export default {
 </script>
 
 <style scoped>
-
-
-div.login {
-  
-  align-content: center;
-}
-form {
+#login {
+  position: relative;
   display: flex;
   flex-direction: column;
-  
-  background-color: aqua;
+  height: 35rem;
+  justify-content: center;
+  align-items: center;
+  margin: 4rem auto;
+}
+form.form-signin {
+  display: flex;
+  flex-direction: column;
+  background-color: #FBF2EB;
+  width: 750px;
+  border-radius: 15px;
+  padding: 2.5%;
+  height :100%
 }
 label {
   display: flex;
   padding: 10px;
+  font-size: 24px;
 }
 label.username {
   display: flex;
-  padding: 0px 0px 5px 0px;
+  margin: 2%;
 }
 input#username {
   display: flex;
-  margin: 5px
+  margin-left: 2%;
+  margin-bottom: 2%;
+  width: 50%;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 16px;
 }
 label.password {
   display: flex;
-  flex-direction: row;
+  margin: 2%;
 }
 input#password {
   display: flex;
-  margin: 5px
+  margin-left: 2%;
+  margin-bottom: 2%;
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 5%;
+  font-family: monospace;
 }
-#register {
+form#register {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   display: flex;
-  flex-direction: row;
+  width: 50%;
+  
 }
+button {
+  width: 75%;
+  justify-content: center;
+  align-content: center;
+  margin-top: 10px;
+  background-image: radial-gradient(#FF0821, #FF5465);
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 2%;
+  font-size: 18px;
+}
+
 /* @media (min-width: 1024px) {
   #body-grid {
     grid-template-columns: 1fr 1fr 1fr 1fr;

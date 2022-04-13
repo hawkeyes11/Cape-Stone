@@ -1,20 +1,21 @@
 <template>
-  <div>
-    <h2 class="name">name: {{ restaurant.name }}</h2>
+  <div class="restaurant-cards">
+    <div class="card">
+    <h2 class="name">Restaurant Name: {{ restaurant.name }}</h2>
     <p class="address">
-      address: {{ restaurant.display_address[0] }}
+      Address: {{ restaurant.display_address[0] }}
       {{ restaurant.display_address[1] }}
     </p>
     <a :href='"tel:" + restaurant.display_phone' class="phone">Call to Order: {{ restaurant.display_phone }}</a>
 
 
  <!-- need to round off number -->
-    <p class="distance">miles away: {{ restaurant.distance }}</p>
+    <p class="distance">Distance in miles: {{ restaurant.distance }}</p>
 
     <p>{{restaurant.isClosed ? 'Closed' : 'Open now' }}</p>
 
 <!-- need to display stars not number -->
-    <div>rating: {{ restaurant.rating }} amount of reviews:
+    <div class="rating">Average Rating: {{ restaurant.rating }} <br> Amount of Reviews:
     {{ restaurant.reviewCount }}</div>
 
 
@@ -22,6 +23,7 @@
 
     <p v-for="t in restaurant.transactions" :key="t.id">{{ t }}</p>
     <p v-for="c in restaurant.categories" :key="c.id">{{ c }}</p>
+    </div>
   </div>
 </template>
 
@@ -34,5 +36,74 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+div.card {
+  border-radius: 20px;
+  background-color: #FBF2EB;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* height: 35rem; */
+  justify-content: center;
+  align-items: center;
+  /* margin: 4rem auto; */
+  margin-top: 5em;
+  margin-bottom: 50px;
+  padding-bottom: 75px;
+}
+/*form.form-signin {
+  display: flex;
+  flex-direction: column;
+  background-color: #FBF2EB;
+  width: 750px;
+  border-radius: 15px;
+  padding: 2.5%;
+  height :100%
+}
+label {
+  display: flex;
+  padding: 10px;
+  font-size: 24px;
+}
+label.username {
+  display: flex;
+  margin: 2%;
+}
+input#username {
+  display: flex;
+  margin: 2%;
+  width: 50%;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 16px;
+}
+label.password {
+  display: flex;
+  margin: 2%;
+}
+input#password {
+  display: flex;
+  margin: 2%;
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 5%;
+  font-family: monospace;
+}
+form#register {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  display: flex;
+  width: 50%;
+  
+}
+button {
+  width: 75%;
+  justify-content: center;
+  align-content: center;
+  margin-top: 10px;
+  background-image: radial-gradient(#FF0821, #FF5465);
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 2%;
+  font-size: 18px;
+} */
 </style>
