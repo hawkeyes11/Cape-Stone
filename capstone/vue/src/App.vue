@@ -1,10 +1,11 @@
 <template>
   <div class="app">
+    <div v-if="!isLoading">
     <nav class="navbar">
     <div id="nav">
       <a class="navbar-logo" href="/">
           <div class="header-logo-name">
-            <img class="logo" src="" />
+            <img class="logo" src="@/assets/logo.png" />
             <h1 class="navbar-text">APP TITLE</h1>
         </div>
         </a> 
@@ -16,6 +17,10 @@
     </div>
     </nav>
     <router-view />
+    </div>
+    <div v-if="isLoading">
+      <img src="@/assets/Food_load.gif" />
+    </div>
   </div>
 
   <!-- 
@@ -48,6 +53,28 @@
     </div> -->
 </template>
 
+<script>
+export default {
+methods: {
+loading() {
+      setTimeout(() => {
+        this.isLoading = false
+      }, 2000)
+    }
+  },
+  data() {
+    return {
+      isLoading: true
+    }
+  },
+  mounted() {
+   this.loading()
+  }
+};
+
+
+</script>
+
 
 
 <style>
@@ -59,27 +86,26 @@ html {
   margin-left: 5%;
   margin-top: 2%;
   margin-right: 5%;
-  justify-content: center;
-  
-
 }
 body {
   display: flex;
   flex-direction: column;
   background-color: #AC8A6D;
   justify-content: center;
-  margin-bottom: 2%;
-
 }
 nav {
   display: flex;
   flex-direction: row;
   margin-bottom: 2%;
 }
-nav.navbar {
-    display: flex;
-  flex-direction: row;
+.logo {
+  width: auto;
+  height: 50px;
 }
+/* nav.navbar {
+  display: flex;
+  flex-direction: row;
+} */
 
 
 /*

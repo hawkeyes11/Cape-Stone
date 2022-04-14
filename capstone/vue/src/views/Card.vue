@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="search">
+    <div v-if="!isLoading" class="search">
     <input @keyup.enter="getRestaurants()"
       type="text" placeholder="Enter a city or zip code"
       v-model="zip"
@@ -8,6 +8,9 @@
     <button @click="getRestaurants()">Get Restaurants</button>
     <restaurant-card :restaurant='card' v-for="card in response" :key = "card.id" />
     <button class="host">Are you the host?</button>
+    </div>
+    <div v-if="isLoading">
+      <img src="@/assets/Food_load.gif" />
     </div>
   </div>
 </template>
@@ -21,19 +24,26 @@ export default {
   },
   methods: {
     getRestaurants() {
-
       restaurantService.getRestaurants(this.zip).then((r) => {
         this.response = r.data
         console.log(r.data)
-      })
-
+      });
+    },
+    loading() {
+      setTimeout(() => {
+        this.isLoading = false
+      }, 2000)
     }
   },
   data() {
     return {
       zip:'',
-      response:''
+      response:'',
+      isLoading: true
     }
+  },
+  mounted() {
+   this.loading()
   }
 };
 </script>

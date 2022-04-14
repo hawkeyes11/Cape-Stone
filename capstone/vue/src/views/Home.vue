@@ -1,15 +1,15 @@
 <template>
 <div class="homepage">
     <h2>Welcome to APP NAME</h2>
-    <div class="options" >
-        <button id="find-restaurant"><span>Find a Restaurant</span> <!-- redirects to Restaurant Cards -->
+    <div class=" custom-btn options" >
+        <button class="find-restaurant"><span>Find a Restaurant</span> <!-- redirects to Restaurant Cards -->
         </button> 
         <!-- Figure out the social networking/matchmaking elements -->
-        <button id="invite"><span>Saved Restaurants</span>    <!-- redirects to Friends List ?? -->
-        </button> 
-        <button id="logout"><span>Logout</span> <!-- redirects back to login page -->
-        </button> 
-    </div>
+        <button class="invite"><span>Saved Restaurants</span>    <!-- redirects to Friends List ?? -->
+        </button>
+        <button class="logout"><span>Logout</span> <!-- redirects back to login page -->
+        </button>
+    </div> 
 </div>
 </template>
 
@@ -23,8 +23,76 @@ export default {
 
 <style scoped>
 .homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: azure;
+  padding-bottom: 1em;
+  height: 500px;
+}
+/* 
+button {
+  margin: 20px;
+}
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+} */
+
+button {
+  display: flex;
+  background: #b621fe;
+  border: none;
+  z-index: 1;
+  align-content: center;
+  margin: 20px;
+  width: 750px;
+  height: px;
+}
+
+button:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background-color: #663dff;
+  border-radius: 5px;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  color: #fff;
+}
+button:hover:after {
+  left: 0;
   width: 100%;
+}
+button:active {
+  top: 2px;
+}
+button.logout {
+  background-color: cadetblue;
+  width: 25%;
 }
 
 
