@@ -76,6 +76,8 @@ public class RestaurantService implements RestaurantServiceAPI {
                     categories.add(category.next().get("alias").asText());
                 }
 
+                String websiteUrl = currentElement.get("url").asText();
+
                 Iterator<JsonNode> transaction = currentElement.get("transactions").elements();
                 List<String> transactions = new ArrayList<>();
                 while(transaction.hasNext()) {
@@ -84,7 +86,7 @@ public class RestaurantService implements RestaurantServiceAPI {
 
                 boolean isClosing = currentElement.get("is_closed").asBoolean();
 
-                restaurantList.add(new Restaurant(name, reviewCount, rating, categories, addressList, phoneNumber, distance, transactions, isClosing, url));
+                restaurantList.add(new Restaurant(name, reviewCount, rating, categories, addressList, phoneNumber, distance, transactions, isClosing, url, websiteUrl));
             }
         } catch (JsonProcessingException e) {
             e.printStackTrace();

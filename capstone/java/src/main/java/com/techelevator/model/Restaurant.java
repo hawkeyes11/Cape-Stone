@@ -16,12 +16,13 @@ public class Restaurant {
     private List<String> transactions;
     private boolean isClosed;
     private String url;
+    private String websiteUrl;
 
 
     public Restaurant() {
     }
 
-    public Restaurant(String name, int reviewCount, double rating, List<String> categories, List<String> display_address, String display_phone, double distance, List<String> transactions, boolean isClosed, String url) {
+    public Restaurant(String name, int reviewCount, double rating, List<String> categories, List<String> display_address, String display_phone, double distance, List<String> transactions, boolean isClosed, String url, String websiteUrl) {
         this.name = name;
         this.reviewCount = reviewCount;
         this.rating = rating;
@@ -32,10 +33,27 @@ public class Restaurant {
         this.transactions = transactions;
         this.isClosed = isClosed;
         this.url = url;
+        this.websiteUrl = websiteUrl;
     }
 
     public String getName() {
         return name;
+    }
+
+    public boolean isClosed() {
+        return isClosed;
+    }
+
+    public void setClosed(boolean closed) {
+        isClosed = closed;
+    }
+
+    public String getWebsiteUrl() {
+        return websiteUrl;
+    }
+
+    public void setWebsiteUrl(String websiteUrl) {
+        this.websiteUrl = websiteUrl;
     }
 
     public boolean getIsClosed() {
