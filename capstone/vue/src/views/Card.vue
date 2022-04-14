@@ -7,6 +7,7 @@
     />
     <button @click="getRestaurants()">Get Restaurants</button>
     <restaurant-card :restaurant='card' v-for="card in response" :key = "card.id" />
+    <button class="host">Are you the host?</button>
     </div>
   </div>
 </template>
@@ -38,18 +39,25 @@ export default {
 </script>
 
 <style>
+
+/* div {
+  display: flex;
+  justify-items: center;
+} */
 div.search {
   display: flex;
   flex-direction: column;
+  width: 50%;
+  justify-items: center;
 }
-div > input {
+input {
   display: flex;
   padding: 10px;
   font-size: 16px;
 }
-div > button {
+button {
   display: flex;
-  margin-top: 1em;;
+  margin-top: 1em;
   justify-content: center;
   align-content: center;
   margin-top: 10px;
