@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 
 public class Restaurant {
+    private String restaurantId;
     private String name;
     private int reviewCount;
     private double rating;
@@ -22,8 +23,12 @@ public class Restaurant {
 
     public Restaurant() {
     }
+    public Restaurant(String restaurantId){
+        this.restaurantId = restaurantId;
+    }
 
-    public Restaurant(String name, int reviewCount, double rating, List<String> categories, List<String> display_address, String display_phone, double distance, List<String> transactions, boolean isClosed, String url, String websiteUrl, String price) {
+    public Restaurant(String restaurantId, String name, int reviewCount, double rating, List<String> categories, List<String> display_address, String display_phone, double distance, List<String> transactions, boolean isClosed, String url, String websiteUrl, String price) {
+        this.restaurantId = restaurantId;
         this.name = name;
         this.reviewCount = reviewCount;
         this.rating = rating;
@@ -36,6 +41,14 @@ public class Restaurant {
         this.url = url;
         this.websiteUrl = websiteUrl;
         this.price = price;
+    }
+
+    public String getRestaurantId() {
+        return restaurantId;
+    }
+
+    public void setRestaurantId(String restaurantId) {
+        this.restaurantId = restaurantId;
     }
 
     public String getName() {
