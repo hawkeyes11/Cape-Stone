@@ -25,6 +25,10 @@
 
       <img :src="restaurant.url" />
 
+      <a target="_blank" :href="restaurant.websiteUrl">Like to more information</a>
+
+      <p>{{restaurant.price}}</p>
+
       <!-- TODO correctly concat strings of categories -->
       <p v-for="c in restaurant.categories" :key="c.id">{{ c }}</p>
     </div>

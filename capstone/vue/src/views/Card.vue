@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="search">
-    <input 
+    <input @keyup.enter="getRestaurants()"
       type="text" placeholder="Enter a city or zip code"
       v-model="zip"
     />

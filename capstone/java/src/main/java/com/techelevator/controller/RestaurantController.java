@@ -6,6 +6,7 @@ import com.techelevator.model.Restaurant;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -19,7 +20,9 @@ public class RestaurantController {
 
     @GetMapping("/restaurants")
     public List<Restaurant> getRestaurants(@RequestParam(value = "location") String location) {
-        return restaurantServiceAPI.getRestaurants(location);
+        List<Restaurant> restaurantList = restaurantServiceAPI.getRestaurants(location);
+        Collections.shuffle(restaurantList);
+        return restaurantList;
     }
 
 
