@@ -13,6 +13,7 @@ import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -73,7 +74,15 @@ public class RestaurantService implements RestaurantServiceAPI {
                 Iterator<JsonNode> category = currentElement.get("categories").elements();
                 List<String> categories = new ArrayList<>();
                 while (category.hasNext()) {
-                    categories.add(category.next().get("alias").asText());
+                    categories.add(category.next().get("title").asText());
+                }
+
+                String websiteUrl = currentElement.get("url").asText();
+
+
+                String price = null;
+                if(currentElement.has("price")) {
+                    price = currentElement.get("price").asText();
                 }
 
                 Iterator<JsonNode> transaction = currentElement.get("transactions").elements();
@@ -84,7 +93,7 @@ public class RestaurantService implements RestaurantServiceAPI {
 
                 boolean isClosing = currentElement.get("is_closed").asBoolean();
 
-                restaurantList.add(new Restaurant(name, reviewCount, rating, categories, addressList, phoneNumber, distance, transactions, isClosing, url));
+                restaurantList.add(new Restaurant(name, reviewCount, rating, categories, addressList, phoneNumber, distance, transactions, isClosing, url, websiteUrl, price));
             }
         } catch (JsonProcessingException e) {
             e.printStackTrace();
@@ -94,6 +103,9 @@ public class RestaurantService implements RestaurantServiceAPI {
     }
 
     private double convertToMiles(double meters) {
-        return (meters / 1609.34);
+        DecimalFormat df = new DecimalFormat("0.00");
+        double conversion = (meters / 1609.34);
+        String formatted = df.format(conversion);
+        return Double.parseDouble(formatted);
     }
 }
