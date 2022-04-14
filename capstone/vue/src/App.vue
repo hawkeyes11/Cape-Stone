@@ -1,13 +1,79 @@
 <template>
-  <div id="app">
+  <div class="app">
+    <div v-if="!isLoading">
+    <nav class="navbar">
     <div id="nav">
+      <a class="navbar-logo" href="/">
+          <div class="header-logo-name">
+            <img class="logo" src="@/assets/logo.png" />
+            <h1 class="navbar-text">APP TITLE</h1>
+        </div>
+        </a> 
+      <div class="nav-buttons">
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link v-bind:to="{ name: 'card' }">Card</router-link>&nbsp;|&nbsp;
       <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+      </div>
     </div>
+    </nav>
     <router-view />
+    </div>
+    <div v-if="isLoading">
+      <img src="@/assets/Food_load.gif" />
+    </div>
   </div>
+
+  <!-- 
+    <div class="container-fluid">
+      <div class="navbar-header">
+      <a class="navbar-logo" href="/">
+          <div class="header-logo-name">
+            <img class="logo" v-bind:src="image">
+            <h1 class="navbar-text">APP TITLE</h1>
+        </div>
+        </a> 
+      </div>
+      
+        <router-link to="/favorites">
+          <li>
+            <button href="/#" class="btn btn-primary">View My Restaurants</button>
+          </li>
+        </router-link>
+        <router-link to="/#">
+          <li>
+            <button href="#" class="btn btn-primary">My Profile</button>
+          </li>
+        </router-link>
+        <li v-if="isAuthenticated">
+          <router-link to="/login">
+            <button class="btn btn-primary" v-on:click.prevent="logout">Logout</button>
+          </router-link>
+        </li>
+      </ul>
+    </div> -->
 </template>
+
+<script>
+export default {
+methods: {
+loading() {
+      setTimeout(() => {
+        this.isLoading = false
+      }, 2000)
+    }
+  },
+  data() {
+    return {
+      isLoading: true
+    }
+  },
+  mounted() {
+   this.loading()
+  }
+};
+
+
+</script>
 
 
 
@@ -17,14 +83,32 @@ html {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   /* font-style: oblique ; */
   color: #8C1184;
+  margin-left: 5%;
+  margin-top: 2%;
+  margin-right: 5%;
 }
 body {
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   background-color: #AC8A6D;
   justify-content: center;
-  height: 50vh;
 }
+nav {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2%;
+}
+.logo {
+  width: auto;
+  height: 50px;
+}
+/* nav.navbar {
+  display: flex;
+  flex-direction: row;
+} */
+
+
+/*
 div#app > div#nav {
   display: flex;
   flex-direction: row;
@@ -32,6 +116,7 @@ div#app > div#nav {
   font-size: 16px;
   padding-bottom: 1rem;
 }
+
 div#app > div#nav > #home {
   display: flex;
 }
@@ -40,7 +125,9 @@ div#app > div#nav > #card {
 }
 div#app > div#nav > #logout {
   display: flex;
-}
+} 
+*/
+
 
 /* @media (min-width: 1024px) {
   #body-grid {

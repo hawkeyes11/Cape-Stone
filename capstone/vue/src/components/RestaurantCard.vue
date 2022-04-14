@@ -45,22 +45,21 @@ export default {
 </script>
 
 <style scoped>
-div.card {
+div.restaurant-cards {
   border-radius: 20px;
   background-color: #fbf2eb;
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex-direction: column;
   /* height: 35rem; */
   justify-content: center;
   align-items: left;
   padding-left: 1em;
-  padding-right: 1em;
+  /* padding-right: 1em; */
   padding-bottom: 3em;
   /* margin: 4rem auto; */
   margin-top: 3em;
-  
-  width: 100%;
+  /* width: 100%; */
 }
 div > h2.name {
   display: flex;
@@ -69,6 +68,9 @@ div > h2.name {
 a.phone {
   display: flex;
   padding-top: 1em;
+}
+a {
+  display: flex;
 }
 div.address {
   display: flex;
