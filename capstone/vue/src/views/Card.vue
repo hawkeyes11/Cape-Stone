@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div v-if="userRestaurantList.length > 0">{{'List of user liked restaurants(Goes away on refresh): ' + userRestaurantList}}</div>
     <div class="search">
       <button @click="isHost = !isHost" class="host">Are you the host?</button>
       <input type="date" v-if="isHost" placeholder="Expiration Date" v-model="expiration" />
@@ -11,7 +12,7 @@
         v-model="groupZip"
       />
       <button v-if="isHost" @click="hosting">Create Group</button>
-      <p>{{ url }}</p>
+      <p v-if="url">{{ 'Link to the list of cards that the host added for friends to agree or disagree on(Needs front end to display cards by id, not sure how to do this yet) ' + url }}</p>
     </div>
     <input
       v-if="!isHost"
@@ -22,14 +23,11 @@
     />
     <button v-if="!isHost" @click="getRestaurants()">Get Restaurants</button>
     <restaurant-card
+      :hosting="groupId"
       :restaurant="card"
       v-for="card in response"
       :key="card.id"
     />
-    <!--     
-    <div v-if="isLoading">
-      <img src="@/assets/Food_load.gif" />
-    </div> -->
   </div>
 </template>
 
@@ -57,11 +55,13 @@ export default {
         .createGroup(this.groupZip, this.expiration)
         .then((r) => {
         this.url = r.data;
+        this.groupId = r.data.substring(r.data.length - 6);
+        console.log(this.groupId);
         restaurantService.getRestaurants(this.groupZip).then((r) => {
         this.response = r.data;
         console.log(r.data);
         });
-        });
+      });
     },
   },
   data() {
@@ -70,9 +70,11 @@ export default {
       response: "",
       isLoading: true,
       isHost: false,
+      groupId: "",
       groupZip: "",
       expiration: "",
       url: "",
+      userRestaurantList: this.$store.state.userRestaurantList
     };
   },
   mounted() {

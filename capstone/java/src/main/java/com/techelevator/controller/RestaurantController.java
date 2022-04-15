@@ -55,8 +55,6 @@ public class RestaurantController {
     @GetMapping("/create")
     //year-month-day
     public String createInvite(@RequestParam(value = "location") String location, @RequestParam(value = "expiration")Date date) {
-        //database logic to create a group room for finding restaurants needs: expiration date, restaurant id of liked restaurants tied to user ids, room id
-        //have backend service that checks every 2 days for expired rooms and deletes them
         int id = jdbcGroupDao.createGroup(location, date);
         return "http://localhost:8080/join/" + id;
     }
@@ -67,6 +65,12 @@ public class RestaurantController {
     public void addRestaurantToGroupList(@PathVariable(value = "id") int id, @RequestBody Restaurant restaurant) {
         jdbcGroupDao.addToFavorites(id, restaurant.getRestaurantId());
     }
+
+//    @ResponseStatus(HttpStatus.ACCEPTED)
+//    @PostMapping("/{id}")
+//    public void addRestaurantToUser(@PathVariable(value = "id") int id, Principal principal) {
+////        need table for fav restaurants
+//    }
 
     @GetMapping("/join/{id}")
     public List<Restaurant> getGroupRestaurants(@PathVariable() int id) {
