@@ -32,7 +32,7 @@ export default {
     loading() {
       setTimeout(() => {
         this.isLoading = false
-      }, 2000)
+      }, 1850)
     }
   },
   data() {
@@ -48,7 +48,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
 /* div {
   display: flex;

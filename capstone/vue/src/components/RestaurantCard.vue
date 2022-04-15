@@ -1,6 +1,7 @@
 <template>
   <div class="restaurant-cards">
     <div class="card">
+      <button class="dislike">Hate it</button>
       <h2 class="name">{{ restaurant.name }}</h2>
       <div class="address">
         Address: {{ restaurant.display_address[0] }}
@@ -31,6 +32,7 @@
 
       <!-- TODO correctly concat strings of categories -->
       <p v-for="c in restaurant.categories" :key="c.id">{{ c }}</p>
+    <button class="like">Yummy!</button>
     </div>
   </div>
 </template>
@@ -45,7 +47,7 @@ export default {
 </script>
 
 <style scoped>
-div.restaurant-cards {
+.card {
   border-radius: 20px;
   background-color: #fbf2eb;
   /* position: relative; */
