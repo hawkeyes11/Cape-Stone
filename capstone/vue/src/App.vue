@@ -37,7 +37,7 @@ export default {
     loading() {
       setTimeout(() => {
         this.isLoading = false;
-      }, 2000);
+      }, 1850);
     },
   },
   data() {
@@ -52,17 +52,20 @@ export default {
 </script>
 
 <style>
-body {
+/* div.app {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-areas:
+  grid-template-rows: 1fr 1fr 1fr;
+  /* grid-template-areas:
     "header header . header"
     ". content content ."
     ". footer footer .";
-  column-gap: 15px;
-}
+  column-gap: 10px;
+} */
 header {
   grid-area: header;
+  background-color: #62CDD9;
+  padding: 7px;
 }
 .content {
   grid-area: content;
@@ -172,4 +175,6 @@ nav {
 .color-theme_DSC_3862-5-hsla {
   color: hsla(27, 48, 80, 1);
 }
+
+
 </style>
