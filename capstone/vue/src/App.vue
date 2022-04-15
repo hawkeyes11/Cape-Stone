@@ -1,144 +1,110 @@
 <template>
   <div class="app">
     <div v-if="!isLoading">
-    <nav class="navbar">
-    <div id="nav">
-      <a class="navbar-logo" href="/">
-          <div class="header-logo-name">
-            <img class="logo" src="@/assets/logo.png" />
-            <h1 class="navbar-text">APP TITLE</h1>
-        </div>
-        </a> 
-      <div class="nav-buttons">
-      <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-      <router-link v-bind:to="{ name: 'card' }">Card</router-link>&nbsp;|&nbsp;
-      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-      </div>
-    </div>
-    </nav>
-    <router-view />
+      <header>
+        <nav class="navbar">
+          <a class="navbar-logo" href="/">
+            <div class="header-logo-name">
+              <img class="logo" src="@/assets/logo.png" />
+              <h1 class="navbar-text">APP TITLE</h1>
+            </div>
+          </a>
+          <div class="nav-buttons">
+            <router-link v-bind:to="{ name: 'home' }">Home</router-link
+            >&nbsp;|&nbsp;
+            <router-link v-bind:to="{ name: 'card' }">Card</router-link
+            >&nbsp;|&nbsp;
+            <router-link
+              v-bind:to="{ name: 'logout' }"
+              v-if="$store.state.token != ''"
+              >Logout</router-link
+            >
+          </div>
+        </nav>
+      </header>
+      <router-view class="content" />
     </div>
     <div v-if="isLoading">
       <img src="@/assets/Food_load.gif" />
     </div>
+    <footer class="footer">Bling, Bling</footer>
   </div>
-
-  <!-- 
-    <div class="container-fluid">
-      <div class="navbar-header">
-      <a class="navbar-logo" href="/">
-          <div class="header-logo-name">
-            <img class="logo" v-bind:src="image">
-            <h1 class="navbar-text">APP TITLE</h1>
-        </div>
-        </a> 
-      </div>
-      
-        <router-link to="/favorites">
-          <li>
-            <button href="/#" class="btn btn-primary">View My Restaurants</button>
-          </li>
-        </router-link>
-        <router-link to="/#">
-          <li>
-            <button href="#" class="btn btn-primary">My Profile</button>
-          </li>
-        </router-link>
-        <li v-if="isAuthenticated">
-          <router-link to="/login">
-            <button class="btn btn-primary" v-on:click.prevent="logout">Logout</button>
-          </router-link>
-        </li>
-      </ul>
-    </div> -->
 </template>
 
 <script>
 export default {
-methods: {
-loading() {
+  methods: {
+    loading() {
       setTimeout(() => {
-        this.isLoading = false
-      }, 2000)
-    }
+        this.isLoading = false;
+      }, 1850);
+    },
   },
   data() {
     return {
-      isLoading: true
-    }
+      isLoading: true,
+    };
   },
   mounted() {
-   this.loading()
-  }
+    this.loading();
+  },
 };
-
-
 </script>
 
-
-
 <style>
+/* div.app {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  /* grid-template-areas:
+    "header header . header"
+    ". content content ."
+    ". footer footer .";
+  column-gap: 10px;
+} */
+header {
+  grid-area: header;
+  background-color: #62CDD9;
+  padding: 7px;
+}
+.content {
+  grid-area: content;
+}
+footer {
+  grid-area: footer;
+}
 html {
   font-size: 18px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   /* font-style: oblique ; */
-  color: #8C1184;
+  color: #8c1184;
   margin-left: 5%;
   margin-top: 2%;
   margin-right: 5%;
 }
 body {
-  display: flex;
-  flex-direction: column;
-  background-color: #AC8A6D;
-  justify-content: center;
+  background-color: #ac8a6d;
 }
 nav {
-  display: flex;
-  flex-direction: row;
   margin-bottom: 2%;
 }
 .logo {
   width: auto;
   height: 50px;
 }
-/* nav.navbar {
-  display: flex;
-  flex-direction: row;
-} */
-
-
-/*
-div#app > div#nav {
-  display: flex;
-  flex-direction: row;
-  font-family: monospace;
-  font-size: 16px;
-  padding-bottom: 1rem;
-}
-
-div#app > div#nav > #home {
-  display: flex;
-}
-div#app > div#nav > #card {
-  display: flex;
-}
-div#app > div#nav > #logout {
-  display: flex;
-} 
-*/
-
-
-/* @media (min-width: 1024px) {
-  #body-grid {
+/* 
+@media (min-width: 1024px) {
+  .app {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas:
-      "header header header nav"
-      "main main main main"
+      "header header . header"
+      ". content content ."
       "footer footer footer footer";
     column-gap: 35px;
   }
-}
+} */
+/*
 @media (max-width: 1024px) {
   #body-grid {
     grid-template-columns: 1fr 1fr 1fr;
@@ -157,28 +123,58 @@ div#app > div#nav > #logout {
       "header"
       "main"
       "footer";
-  } */
-
+  } 
+*/
 /* Color Theme Swatches in Hex */
-.color-theme_DSC_3862-1-hex { color: #888888; }
-.color-theme_DSC_3862-2-hex { color: #CDA787; }
-.color-theme_DSC_3862-3-hex { color: #FBF2EB; }
-.color-theme_DSC_3862-4-hex { color: #AC8A6D; }
-.color-theme_DSC_3862-5-hex { color: #E6CCB6; }
+.color-theme_DSC_3862-1-hex {
+  color: #888888;
+}
+.color-theme_DSC_3862-2-hex {
+  color: #cda787;
+}
+.color-theme_DSC_3862-3-hex {
+  color: #fbf2eb;
+}
+.color-theme_DSC_3862-4-hex {
+  color: #ac8a6d;
+}
+.color-theme_DSC_3862-5-hex {
+  color: #e6ccb6;
+}
 
 /* Color Theme Swatches in RGBA */
-.color-theme_DSC_3862-1-rgba { color: rgba(216, 198, 175, 1); }
-.color-theme_DSC_3862-2-rgba { color: rgba(205, 167, 135, 1); }
-.color-theme_DSC_3862-3-rgba { color: rgba(251, 242, 235, 1); }
-.color-theme_DSC_3862-4-rgba { color: rgba(172, 138, 109, 1); }
-.color-theme_DSC_3862-5-rgba { color: rgba(230, 204, 182, 1); }
+.color-theme_DSC_3862-1-rgba {
+  color: rgba(216, 198, 175, 1);
+}
+.color-theme_DSC_3862-2-rgba {
+  color: rgba(205, 167, 135, 1);
+}
+.color-theme_DSC_3862-3-rgba {
+  color: rgba(251, 242, 235, 1);
+}
+.color-theme_DSC_3862-4-rgba {
+  color: rgba(172, 138, 109, 1);
+}
+.color-theme_DSC_3862-5-rgba {
+  color: rgba(230, 204, 182, 1);
+}
 
 /* Color Theme Swatches in HSLA */
-.color-theme_DSC_3862-1-hsla { color: hsla(33, 34, 76, 1); }
-.color-theme_DSC_3862-2-hsla { color: hsla(27, 41, 66, 1); }
-.color-theme_DSC_3862-3-hsla { color: hsla(26, 66, 95, 1); }
-.color-theme_DSC_3862-4-hsla { color: hsla(27, 27, 55, 1); }
-.color-theme_DSC_3862-5-hsla { color: hsla(27, 48, 80, 1); }
+.color-theme_DSC_3862-1-hsla {
+  color: hsla(33, 34, 76, 1);
+}
+.color-theme_DSC_3862-2-hsla {
+  color: hsla(27, 41, 66, 1);
+}
+.color-theme_DSC_3862-3-hsla {
+  color: hsla(26, 66, 95, 1);
+}
+.color-theme_DSC_3862-4-hsla {
+  color: hsla(27, 27, 55, 1);
+}
+.color-theme_DSC_3862-5-hsla {
+  color: hsla(27, 48, 80, 1);
+}
 
 
 </style>

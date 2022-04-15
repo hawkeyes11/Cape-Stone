@@ -64,7 +64,7 @@ public class JdbcGroupDao implements GroupDao {
 
     public void addToFavorites(int group_id, String restaurant_id) {
 
-        String sql = "insert into favorites (group_id, restaurant_id)" +
+        String sql = "insert into group_favorites (group_id, restaurant_id)" +
                 " values (?,?);";
 
         jdbcTemplate.update(sql,
@@ -76,8 +76,8 @@ public class JdbcGroupDao implements GroupDao {
         List<Restaurant> listOfRestaurants= new ArrayList<>();
 
         String sql = "select restaurant_id" +
-                    " from favorites" +
-                    " where favorites.group_id = ?;";
+                    " from group_favorites" +
+                    " where group_favorites.group_id = ?;";
 
         SqlRowSet listOfIds = jdbcTemplate.queryForRowSet(sql, group_id);
 

@@ -1,13 +1,13 @@
 <template>
 <div class="homepage">
     <h2>Welcome to APP NAME</h2>
-    <div class=" custom-btn options" >
-        <button class="find-restaurant"><span>Find a Restaurant</span> <!-- redirects to Restaurant Cards -->
+    <div class="options" >
+        <button class="custom-btn find-restaurant"><span>Find a Restaurant</span> <!-- redirects to Restaurant Cards -->
         </button> 
         <!-- Figure out the social networking/matchmaking elements -->
-        <button class="invite"><span>Saved Restaurants</span>    <!-- redirects to Friends List ?? -->
+        <button class="custom-btn invite"><span>Saved Restaurants</span>    <!-- redirects to Friends List ?? -->
         </button>
-        <button class="logout"><span>Logout</span> <!-- redirects back to login page -->
+        <button class="custom-btn logout"><span>Logout</span> <!-- redirects back to login page -->
         </button>
     </div> 
 </div>
@@ -30,14 +30,11 @@ export default {
   padding-bottom: 1em;
   height: 500px;
 }
-/* 
-button {
-  margin: 20px;
-}
 .custom-btn {
+  background: #b621fe;
   width: 130px;
   height: 40px;
-  color: #fff;
+  color: #000;
   border-radius: 5px;
   padding: 10px 25px;
   font-family: 'Lato', sans-serif;
@@ -51,8 +48,7 @@ button {
    7px 7px 20px 0px rgba(0,0,0,.1),
    4px 4px 5px 0px rgba(0,0,0,.1);
   outline: none;
-} */
-
+} 
 button {
   display: flex;
   background: #b621fe;

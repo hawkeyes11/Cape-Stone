@@ -1,6 +1,7 @@
 <template>
   <div class="restaurant-cards">
-    <div class="card">
+    <button class="dislike">Hate it</button>
+    <div class="card">  
       <h2 class="name">{{ restaurant.name }}</h2>
       <div class="address">
         Address: {{ restaurant.display_address[0] }}
@@ -32,6 +33,7 @@
       <!-- TODO correctly concat strings of categories -->
       <p v-for="c in restaurant.categories" :key="c.id">{{ c }}</p>
     </div>
+    <button class="like">Yummy!</button>
   </div>
 </template>
 
@@ -45,7 +47,7 @@ export default {
 </script>
 
 <style scoped>
-div.restaurant-cards {
+.card {
   border-radius: 20px;
   background-color: #fbf2eb;
   /* position: relative; */
@@ -56,37 +58,37 @@ div.restaurant-cards {
   align-items: left;
   padding-left: 1em;
   /* padding-right: 1em; */
-  padding-bottom: 3em;
+  padding-bottom: 1em;
   /* margin: 4rem auto; */
-  margin-top: 3em;
+  margin-top: 1em;
   /* width: 100%; */
 }
 div > h2.name {
-  display: flex;
+  /* display: flex; */
   font-size: 2rem;
   }
 a.phone {
-  display: flex;
+  /* display: flex; */
   padding-top: 1em;
 }
 a {
-  display: flex;
+  /* display: flex; */
 }
 div.address {
-  display: flex;
+  /* display: flex; */
   padding-top: 1em;
 }
 div.distance {
-  display: flex;
+  /* display: flex; */
 }
 div.rating {
-  display: flex;
+  /* display: flex; */
 }
 div.phone {
-  display: flex;
+  /* display: flex; */
 }
 div.hours {
-  display: flex;
+  /* display: flex; */
 }
 
 
