@@ -33,16 +33,29 @@
       <!-- TODO correctly concat strings of categories -->
       <p v-for="c in restaurant.categories" :key="c.id">{{ c }}</p>
     </div>
-    <button class="like">Yummy!</button>
+    <button @click="addToList()" class="like">Yummy!</button>
   </div>
 </template>
 
 <script>
-// import restaurantService from '../services/RestaurantService.js'
+import restaurantService from '../services/RestaurantService.js'
 
 export default {
   name: "restaurant-card",
-  props: ["restaurant"],
+  props: ["restaurant", "hosting"],
+  methods: {
+    addToList() {
+      if(this.hosting) {
+        restaurantService.addRestaurantToGroupList(this.hosting, this.restaurant.restaurantId)
+        .then(() => {
+          alert("Restaurant Added");
+        })
+      } else {
+        this.$store.commit("ADD_TO_USER_LIST", this.restaurant.restaurantId);
+        console.log(this.$store.state.userRestaurantList);
+      }
+    }
+  }
 };
 </script>
 

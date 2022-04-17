@@ -10,6 +10,14 @@ export default {
     },
     createGroup(location, expiration) {
       return http.get('create?location=' + location + "&expiration=" + expiration)
+    },
+    addRestaurantToGroupList(groupId, restaurantId) {
+      return http.post(groupId, {
+        "restaurantId" : restaurantId
+      });
+    },
+    addRestaurantToUserFav() {
+      
     }
 
 }
