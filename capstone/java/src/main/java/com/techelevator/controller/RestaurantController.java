@@ -68,14 +68,9 @@ public class RestaurantController {
         jdbcGroupDao.addToFavorites(id, restaurant.getRestaurantId());
     }
 
-//    @ResponseStatus(HttpStatus.ACCEPTED)
-//    @PostMapping("/{id}")
-//    public void addRestaurantToUser(@PathVariable(value = "id") int id, Principal principal) {
-////        need table for fav restaurants
-//    }
 
     @GetMapping("/join/{id}")
-    public List<Restaurant> getGroupRestaurants(@PathVariable() int id) {
+    public List<Restaurant> getGroupRestaurants(@PathVariable() int id) throws Exception {
         return jdbcGroupDao.getRestaurantIdsByGroupId(id);
     }
 

@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 
 import java.security.Principal;
 import java.sql.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -67,15 +69,22 @@ public class JdbcGroupDao implements GroupDao {
         String sql = "insert into group_favorites (group_id, restaurant_id)" +
                 " values (?,?);";
 
-        jdbcTemplate.update(sql,
-                group_id,
-                restaurant_id);
+        jdbcTemplate.update(sql, group_id, restaurant_id);
     }
 
-    public List<Restaurant> getRestaurantIdsByGroupId(int group_id){
+    public List<Restaurant> getRestaurantIdsByGroupId(int group_id) throws Exception {
+        DateTimeFormatter dt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDateTime now = LocalDateTime.now();
         List<Restaurant> listOfRestaurants= new ArrayList<>();
+        Date today = Date.valueOf(now.format(dt));
+        String sql = "select expiration_date from groups where group_id = ?";
+        Date expiration = jdbcTemplate.queryForObject(sql, Date.class, group_id);
 
-        String sql = "select restaurant_id" +
+        if(today.after(expiration)) {
+            throw new Exception("You can not access this group after the event date");
+        }
+
+        sql = "select restaurant_id" +
                     " from group_favorites" +
                     " where group_favorites.group_id = ?;";
 
