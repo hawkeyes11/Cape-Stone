@@ -11,7 +11,7 @@ public interface GroupDao {
 
     void addToFavorites(int group_id, String restaurant_id);
 
-    List<Restaurant> getRestaurantIdsByGroupId(int group_id);
+    List<Restaurant> getRestaurantIdsByGroupId(int group_id) throws Exception;
 
     void addCategory(String username, String category);
 
