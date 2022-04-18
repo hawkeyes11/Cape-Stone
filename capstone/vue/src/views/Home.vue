@@ -1,23 +1,30 @@
 <template>
-<div class="homepage content">
-    <h2>Welcome to APP NAME</h2>
-    <div class="options" >
-        <button class="custom-btn find-restaurant"><span>Find a Restaurant</span> <!-- redirects to Restaurant Cards -->
-        </button> 
-        <!-- Figure out the social networking/matchmaking elements -->
-        <button class="custom-btn invite"><span>Saved Restaurants</span>    <!-- redirects to Friends List ?? -->
-        </button>
-        <button class="custom-btn logout"><span>Logout</span> <!-- redirects back to login page -->
-        </button>
-    </div> 
-</div>
+  <div class="homepage content">
+    <h2>Welcome back USERNAME</h2>
+    <p>Hungry?</p>
+    <div class="options">
+      <button class="custom-btn find-restaurant">
+        <span>Find a Restaurant</span>
+        <!-- redirects to Restaurant Cards -->
+      </button>
+      <!-- Figure out the social networking/matchmaking elements -->
+      <button class="custom-btn invite">
+        <span>Saved Restaurants</span>
+        <!-- redirects to Friends List ?? -->
+      </button>
+      <button class="custom-btn logout">
+        <span>Logout</span>
+        <!-- redirects back to login page -->
+      </button>
+    </div>
+  </div>
 </template>
 
 <script>
 // import authService from "../services/AuthService";
 
 export default {
-  name: "home"
+  name: "home",
 };
 </script>
 
@@ -26,30 +33,30 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #0AA605;
+  background-color: #0aa605;
   padding-bottom: 1em;
+  margin-bottom: 1em;
+  border-radius: 10px;
   height: 500px;
 }
 .custom-btn {
   width: 100%;
   height: 75px;
-  background-color: #F25C05;
+  background-color: #f25c05;
   color: #000;
   border-radius: 5px;
   padding: 10px 25px;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 500;
   /* background: transparent; */
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
- 
-} 
+}
 button {
   display: flex;
   background: #b621fe;
@@ -70,11 +77,10 @@ button:after {
   top: 0;
   right: 0;
   z-index: -1;
-  background-image:linear-gradient(#F21616, white) ;
+  background-image: linear-gradient(to left, #f25c05, #f2b705);
   border-radius: 5px;
-   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-    7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
@@ -92,6 +98,4 @@ button.logout {
   background-color: cadetblue;
   width: 25%;
 }
-
-
 </style>
