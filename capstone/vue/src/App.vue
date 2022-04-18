@@ -50,30 +50,30 @@ export default {
 </script>
 
 <style>
-/* body{
+body{
 display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 2fr 1fr;
   grid-template-areas:
-    "header header header header"
+    "tim tim tim tim"
     "content content content content"
-    "footer footer footer footer";
+    "toe toe toe toe";
   column-gap: 5px;
-}  */
+} 
 header {
-  display: grid;
-  grid-area: header;
+  /* display: grid; */
+  grid-area: tim;
   background-color: #62CDD9;
   padding: 7px;
 }
 .content {
-  display: grid;
+  /* display: grid; */
   grid-area: content;
   align-content: center;
 }
 footer {
-  display: grid;
-  grid-area: footer;
+  /* display: grid; */
+  grid-area: toe;
   justify-content: center;
 }
 html {

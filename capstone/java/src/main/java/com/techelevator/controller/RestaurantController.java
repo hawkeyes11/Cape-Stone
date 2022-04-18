@@ -3,6 +3,7 @@ package com.techelevator.controller;
 
 import com.techelevator.Services.RestaurantServiceAPI;
 import com.techelevator.dao.JdbcGroupDao;
+import com.techelevator.model.Category;
 import com.techelevator.model.Restaurant;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -43,8 +44,9 @@ public class RestaurantController {
     }
 
     @PostMapping("/user/categories")
-    public void addCategory(@RequestBody String category, Principal principal) {
-        jdbcGroupDao.addCategory(principal.getName(), category);
+    public void addCategory(@RequestBody Category category, Principal principal) {
+        System.out.println(category.getCategory());
+        jdbcGroupDao.addCategory(principal.getName(), category.getCategory());
     }
 
     @GetMapping("/{username}/categories")
