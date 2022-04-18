@@ -71,10 +71,10 @@ export default {
   align-items: left;
   padding-left: 1em;
   /* padding-right: 1em; */
-  padding-bottom: 1em;
-  /* margin: 4rem auto; */
+  padding-bottom: 1%;
+  margin: 2%;
   margin-top: 1em;
-  /* width: 100%; */
+  max-width: 1080px;
 }
 div > h2.name {
   /* display: flex; */
@@ -102,6 +102,11 @@ div.phone {
 }
 div.hours {
   /* display: flex; */
+}
+img {
+  display: flex;
+  width: 50%;
+  height: auto;
 }
 
 

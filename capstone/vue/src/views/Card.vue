@@ -1,9 +1,29 @@
 <template>
   <div class="content">
-    <div v-if="userRestaurantList.length > 0">{{'List of user liked restaurants(Goes away on refresh): ' + userRestaurantList}}</div>
+    <!-- <div class="category-btn">
+      <button @click="filteredPrice">Category Sort</button>
+    </div> -->
+
+    <!-- <div class="well" v-bind:class="{ filtered: filter === 1 }">
+                <span class="amount" v-on:click="filter = 1">{{  numberOfReviews(1) }}</span>
+               1 Star Review{{ numberOfReviews(1) == 1 ? '' : 's' }}
+            </div>
+             -->
+
+    <div v-if="userRestaurantList.length > 0">
+      {{
+        "List of user liked restaurants(Goes away on refresh): " +
+          userRestaurantList
+      }}
+    </div>
     <div class="search">
       <button @click="isHost = !isHost" class="host">Are you the host?</button>
-      <input type="date" v-if="isHost" placeholder="Expiration Date" v-model="expiration" />
+      <input
+        type="date"
+        v-if="isHost"
+        placeholder="Expiration Date"
+        v-model="expiration"
+      />
       <input
         v-if="isHost"
         @keyup.enter="hosting()"
@@ -12,7 +32,12 @@
         v-model="groupZip"
       />
       <button v-if="isHost" @click="hosting">Create Group</button>
-      <p v-if="url">{{ 'Link to the list of cards that the host added for friends to agree or disagree on(Needs front end to display cards by id, not sure how to do this yet) ' + url }}</p>
+      <p v-if="url">
+        {{
+          "Link to the list of cards that the host added for friends to agree or disagree on(Needs front end to display cards by id, not sure how to do this yet) " +
+            url
+        }}
+      </p>
     </div>
     <input
       v-if="!isHost"
@@ -28,6 +53,7 @@
       v-for="card in response"
       :key="card.id"
     />
+
     <!-- <button class="top">BACK TO TOP</button> -->
   </div>
 </template>
@@ -55,27 +81,27 @@ export default {
       restaurantService
         .createGroup(this.groupZip, this.expiration)
         .then((r) => {
-        this.url = r.data;
-        this.groupId = r.data.substring(r.data.length - 6);
-        console.log(this.groupId);
-        restaurantService.getRestaurants(this.groupZip).then((r) => {
-        this.response = r.data;
-        console.log(r.data);
+          this.url = r.data;
+          this.groupId = r.data.substring(r.data.length - 6);
+          console.log(this.groupId);
+          restaurantService.getRestaurants(this.groupZip).then((r) => {
+            this.response = r.data;
+            console.log(r.data);
+          });
         });
-      });
     },
   },
   data() {
     return {
       zip: "",
-      response: "",
+      response: [],
       isLoading: true,
       isHost: false,
       groupId: "",
       groupZip: "",
       expiration: "",
       url: "",
-      userRestaurantList: this.$store.state.userRestaurantList
+      userRestaurantList: this.$store.state.userRestaurantList,
     };
   },
   mounted() {
@@ -90,7 +116,6 @@ div.search {
   flex-direction: column;
   width: 50%;
   justify-items: center;
-
 }
 input {
   display: flex;
