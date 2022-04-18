@@ -35,6 +35,7 @@ export default {
   align-items: center;
   background-color: #0aa605;
   padding-bottom: 1em;
+  margin-bottom: 1em;
   border-radius: 10px;
   height: 500px;
 }

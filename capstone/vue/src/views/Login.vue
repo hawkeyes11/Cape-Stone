@@ -87,13 +87,13 @@ export default {
 form.form-signin {
   display: flex;
   flex-direction: column;
-
-  background-color: #FBF2EB;
+  background-color: #0aa605;
   width: 75%;
   border-radius: 15px;
   margin: 10px;
   padding: 1%;
-  height :100%
+  height: auto;
+  width: 50%;
 }
 label {
   display: flex;
