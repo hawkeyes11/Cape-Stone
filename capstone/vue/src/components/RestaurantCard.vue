@@ -1,6 +1,6 @@
 <template>
   <div class="restaurant-cards">
-    <button class="dislike">Hate it</button>
+    <button class="dislike">Yuck it!</button>
     <div class="card">  
       <h2 class="name">{{ restaurant.name }}</h2>
       <div class="address">
@@ -33,7 +33,7 @@
       <!-- TODO correctly concat strings of categories -->
       <p v-for="c in restaurant.categories" :key="c.id">{{ c }}</p>
     </div>
-    <button @click="addToList()" class="like">Yummy!</button>
+    <button @click="addToList()" class="like">Love it!</button>
   </div>
 </template>
 
