@@ -23,7 +23,7 @@
       <router-view class="content" />
     </div>
     <div v-if="isLoading">
-      <img src="@/assets/Food_load.gif" />
+      <img class="load-food" src="@/assets/Food_load.gif" />
     </div>
     <footer class="footer">Bling, Bling</footer>
   </div>
@@ -102,6 +102,13 @@ h1 {
 div.nav-buttons {
   text-decoration: none;
 }
+.load-food {
+  justify-content: center;
+  height: 50%;
+  width: auto;
+  
+}
+
 /* 
 @media (min-width: 1024px) {
   .app {
