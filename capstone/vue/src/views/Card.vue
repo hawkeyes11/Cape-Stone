@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content">
     <div v-if="userRestaurantList.length > 0">{{'List of user liked restaurants(Goes away on refresh): ' + userRestaurantList}}</div>
     <div class="search">
       <button @click="isHost = !isHost" class="host">Are you the host?</button>

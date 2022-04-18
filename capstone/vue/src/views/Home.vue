@@ -1,5 +1,5 @@
 <template>
-<div class="homepage">
+<div class="homepage content">
     <h2>Welcome to APP NAME</h2>
     <div class="options" >
         <button class="custom-btn find-restaurant"><span>Find a Restaurant</span> <!-- redirects to Restaurant Cards -->
@@ -26,20 +26,20 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: azure;
+  background-color: #0AA605;
   padding-bottom: 1em;
   height: 500px;
 }
 .custom-btn {
-  background: #b621fe;
-  width: 130px;
-  height: 40px;
+  width: 100%;
+  height: 75px;
+  background-color: #F25C05;
   color: #000;
   border-radius: 5px;
   padding: 10px 25px;
   font-family: 'Lato', sans-serif;
   font-weight: 500;
-  background: transparent;
+  /* background: transparent; */
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
@@ -48,6 +48,7 @@ export default {
    7px 7px 20px 0px rgba(0,0,0,.1),
    4px 4px 5px 0px rgba(0,0,0,.1);
   outline: none;
+ 
 } 
 button {
   display: flex;
@@ -57,7 +58,8 @@ button {
   align-content: center;
   margin: 20px;
   width: 750px;
-  height: px;
+  height: 100%;
+  text-align: middle;
 }
 
 button:after {
@@ -68,7 +70,7 @@ button:after {
   top: 0;
   right: 0;
   z-index: -1;
-  background-color: #663dff;
+  background-image:linear-gradient(#F21616, white) ;
   border-radius: 5px;
    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
     7px 7px 20px 0px rgba(0,0,0,.1),
