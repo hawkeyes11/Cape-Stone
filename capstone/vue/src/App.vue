@@ -61,18 +61,18 @@ display: grid;
   column-gap: 5px;
 }  */
 header {
-  display: flex;
+  display: grid;
   grid-area: header;
   background-color: #62CDD9;
   padding: 7px;
 }
 .content {
-  display: flex;
+  display: grid;
   grid-area: content;
   align-content: center;
 }
 footer {
-  display: flex;
+  display: grid;
   grid-area: footer;
   justify-content: center;
 }

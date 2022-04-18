@@ -18,6 +18,9 @@ export default {
     },
     addRestaurantToUserFav() {
       
+    },
+    getCategories() {
+      return http.get("user/categories")
     }
 
 }
