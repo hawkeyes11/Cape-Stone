@@ -22,7 +22,7 @@
       </header>
       <router-view class="content" />
     </div>
-    <div v-if="isLoading">
+     <div v-if="isLoading">
       <img class="load-food" src="@/assets/Food_load.gif" />
     </div>
     <footer class="footer">Bling, Bling</footer>
@@ -35,7 +35,7 @@ export default {
     loading() {
       setTimeout(() => {
         this.isLoading = false;
-      }, 1850);
+      }, 2500);
     },
   },
   data() {
@@ -59,23 +59,6 @@ body{
     "content content content content"
     "toe toe toe toe";
   column-gap: 5px;
-   
-} 
-header {
-  /* display: flex; */
-  /* flex-direction: row; */
-  grid-area: header;
-  background-color: #62CDD9;
-  width: 150%;
-  padding-left: 1em;
-}
-.content {
-  grid-area: content;
-  align-content: center;
-}
-footer {
-  grid-area: footer;
-  justify-content: center;
 }
 html {
   font-size: 18px;
@@ -87,8 +70,36 @@ html {
 
   background-color: #FFFDDB;
   /* background-image: url("https://wallpaperaccess.com/full/3353888.jpg");  */
-  
+ 
 }
+header {
+  /* display: flex; */
+  /* flex-direction: row; */
+  grid-area: header;
+  background-color: #62CDD9;
+  width: 150%;
+  padding-left: 1em;
+  padding-top: 1em;
+}
+.navbar-text {
+  font-family: 'Dosis', sans-serif;
+ 
+}
+.content {
+  grid-area: content;
+  align-content: center;
+}
+footer {
+  display: flex;
+  position: static;
+  grid-area: footer;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  padding: 2%;
+  height: auto;
+}
+
 nav {
   margin-bottom: 1em;
   padding-bottom: 10px;
@@ -97,14 +108,10 @@ nav {
   width: auto;
   height: 50px;
 }
-h1 {
+/* div.nav-buttons {
   text-decoration: none;
-}
-div.nav-buttons {
-  text-decoration: none;
-}
-.load-food {
-  justify-content: center;
+} */
+div.load-food {
   height: 50%;
   width: auto;
   

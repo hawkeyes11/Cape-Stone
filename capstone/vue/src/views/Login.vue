@@ -80,18 +80,19 @@ export default {
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 35rem;
   justify-content: center;
   align-items: center;
-  margin: 4rem auto;
+  margin: 1rem auto;
 }
 form.form-signin {
   display: flex;
   flex-direction: column;
+
   background-color: #FBF2EB;
-  width: 750px;
+  width: 75%;
   border-radius: 15px;
-  padding: 2.5%;
+  margin: 10px;
+  padding: 1%;
   height :100%
 }
 label {
