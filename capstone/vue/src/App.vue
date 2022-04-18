@@ -51,29 +51,30 @@ export default {
 
 <style>
 body{
-display: grid;
+/* display: grid; */
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 2fr 1fr;
   grid-template-areas:
-    "tim tim tim tim"
+    "header header header header"
     "content content content content"
     "toe toe toe toe";
   column-gap: 5px;
+   
 } 
 header {
-  /* display: grid; */
-  grid-area: tim;
+  /* display: flex; */
+  /* flex-direction: row; */
+  grid-area: header;
   background-color: #62CDD9;
-  padding: 7px;
+  width: 150%;
+  padding-left: 1em;
 }
 .content {
-  /* display: grid; */
   grid-area: content;
   align-content: center;
 }
 footer {
-  /* display: grid; */
-  grid-area: toe;
+  grid-area: footer;
   justify-content: center;
 }
 html {
@@ -82,15 +83,15 @@ html {
     "Lucida Sans", Arial, sans-serif;
   /* font-style: oblique ; */
   text-decoration-color: #400C0C;
-  margin-left: 5%;
-  margin-top: 2%;
-  margin-right: 5%;
-}
-body {
+  /* margin-left: 5%; */
+
   background-color: #FFFDDB;
+  /* background-image: url("https://wallpaperaccess.com/full/3353888.jpg");  */
+  
 }
 nav {
-  margin-bottom: 2%;
+  margin-bottom: 1em;
+  padding-bottom: 10px;
 }
 .logo {
   width: auto;
