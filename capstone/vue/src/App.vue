@@ -3,12 +3,10 @@
     <div v-if="!isLoading">
       <header>
         <nav class="navbar">
-          <a class="navbar-logo" href="/">
             <div class="header-logo-name">
-              <img class="logo" src="@/assets/logo.png" />
+              <img class="logo" src="@/assets/logo.png" href="/" />
               <h1 class="navbar-text">APP TITLE</h1>
             </div>
-          </a>
           <div class="nav-buttons">
             <router-link v-bind:to="{ name: 'home' }">Home</router-link
             >&nbsp;|&nbsp;
@@ -52,39 +50,44 @@ export default {
 </script>
 
 <style>
-/* div.app {
-  display: grid;
+/* body{
+display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  /* grid-template-areas:
-    "header header . header"
-    ". content content ."
-    ". footer footer .";
-  column-gap: 10px;
-} */
+  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-areas:
+    "header header header header"
+    "content content content content"
+    "footer footer footer footer";
+  column-gap: 5px;
+}  */
 header {
+  display: grid;
   grid-area: header;
   background-color: #62CDD9;
   padding: 7px;
 }
 .content {
+  display: grid;
   grid-area: content;
+  align-content: center;
 }
 footer {
+  display: grid;
   grid-area: footer;
+  justify-content: center;
 }
 html {
   font-size: 18px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   /* font-style: oblique ; */
-  color: #8c1184;
+  text-decoration-color: #400C0C;
   margin-left: 5%;
   margin-top: 2%;
   margin-right: 5%;
 }
 body {
-  background-color: #ac8a6d;
+  background-color: #FFFDDB;
 }
 nav {
   margin-bottom: 2%;
@@ -92,6 +95,12 @@ nav {
 .logo {
   width: auto;
   height: 50px;
+}
+h1 {
+  text-decoration: none;
+}
+div.nav-buttons {
+  text-decoration: none;
 }
 /* 
 @media (min-width: 1024px) {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content">
     <div v-if="userRestaurantList.length > 0">{{'List of user liked restaurants(Goes away on refresh): ' + userRestaurantList}}</div>
     <div class="search">
       <button @click="isHost = !isHost" class="host">Are you the host?</button>
@@ -28,6 +28,7 @@
       v-for="card in response"
       :key="card.id"
     />
+    <!-- <button class="top">BACK TO TOP</button> -->
   </div>
 </template>
 
@@ -89,6 +90,7 @@ div.search {
   flex-direction: column;
   width: 50%;
   justify-items: center;
+
 }
 input {
   display: flex;
@@ -106,5 +108,12 @@ button {
   border-radius: 5px;
   margin-bottom: 2%;
   font-size: 16px;
+}
+button.top {
+  position: fixed;
+  justify-content: baseline;
+  bottom: 0;
+  right: 0;
+  margin-right: 15px;
 }
 </style>

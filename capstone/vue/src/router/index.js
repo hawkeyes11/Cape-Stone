@@ -5,6 +5,7 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import Card from '../views/Card.vue'
+import UserProfile from '../views/UserProfile.vue'
 import store from '../store/index'
 
 Vue.use(Router)
@@ -60,8 +61,16 @@ const router = new Router({
       component: Card,
       meta: {
         requiresAuth: false
-      }
+      },
+    },
+    {
+    path: "/profile",
+    name: "profile",
+    component: UserProfile,
+    meta: {
+        requiresAuth: false
     }
+  }
   ]
 })
 
