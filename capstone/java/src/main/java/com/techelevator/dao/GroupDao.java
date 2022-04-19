@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Restaurant;
+import com.techelevator.model.RestaurantCounts;
 
 import java.sql.Date;
 import java.util.List;
@@ -11,7 +12,7 @@ public interface GroupDao {
 
     void addToFavorites(int group_id, String restaurant_id);
 
-    List<Restaurant> getRestaurantIdsByGroupId(int group_id) throws Exception;
+    List<RestaurantCounts> getRestaurantIdsByGroupId(int group_id) throws Exception;
 
     void addCategory(String username, String category);
 

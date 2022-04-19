@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 
 import com.techelevator.model.Restaurant;
+import com.techelevator.model.RestaurantCounts;
 import com.techelevator.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -80,10 +81,10 @@ public class JdbcGroupDao implements GroupDao {
         jdbcTemplate.update(sql, group_id, restaurant_id);
     }
 
-    public List<Restaurant> getRestaurantIdsByGroupId(int group_id) throws Exception {
+    public List<RestaurantCounts> getRestaurantIdsByGroupId(int group_id) throws Exception {
         DateTimeFormatter dt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDateTime now = LocalDateTime.now();
-        List<Restaurant> listOfRestaurants= new ArrayList<>();
+        List<RestaurantCounts> listOfRestaurants= new ArrayList<>();
         Date today = Date.valueOf(now.format(dt));
         String sql = "select expiration_date from groups where group_id = ?";
         Date expiration = jdbcTemplate.queryForObject(sql, Date.class, group_id);
@@ -92,9 +93,9 @@ public class JdbcGroupDao implements GroupDao {
             throw new Exception("You can not access this group after the event date");
         }
 
-        sql = "select restaurant_id" +
+        sql = "select restaurant_id, counter" +
                     " from group_favorites" +
-                    " where group_favorites.group_id = ?;";
+                    " where group_favorites.group_id = ? and counter > 0;";
 
         SqlRowSet listOfIds = jdbcTemplate.queryForRowSet(sql, group_id);
 
@@ -105,8 +106,9 @@ public class JdbcGroupDao implements GroupDao {
 
     }
 
-    private Restaurant mapRowToRestaurant(SqlRowSet s){
-        Restaurant restaurant = new Restaurant(s.getString("restaurant_id"));
+    private RestaurantCounts mapRowToRestaurant(SqlRowSet s){
+        RestaurantCounts restaurant = new RestaurantCounts(s.getString("restaurant_id"), s.getInt("counter"));
+
         return restaurant;
     }
 
