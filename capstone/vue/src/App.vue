@@ -1,31 +1,27 @@
 <template>
   <div class="app">
     <div v-if="!isLoading">
-      <header>
-        <nav class="navbar">
-          <div class="header-logo-name">
-            <img class="logo" src="@/assets/logo.png" href="/" />
-            <h1 class="navbar-text">Meet2Eat</h1>
-          </div>
-          <div class="nav-buttons">
-            <router-link v-bind:to="{ name: 'home' }">Home</router-link
-            >&nbsp;|&nbsp;
-            <router-link v-bind:to="{ name: 'card' }">Card</router-link
-            >&nbsp;|&nbsp;
-            <router-link
-              v-bind:to="{ name: 'logout' }"
-              v-if="$store.state.token != ''"
-              >Logout</router-link
-            >
-          </div>
-        </nav>
+      <header class="header-logo-name">
+        <img class="logo" src="@/assets/logo.png" href="/" />
+        <h1 class="title">Meet2Eat</h1>
       </header>
+      <nav class="navbar">
+        <router-link v-bind:to="{ name: 'home' }">Home</router-link
+        >&nbsp;|&nbsp;
+        <router-link v-bind:to="{ name: 'card' }">Search</router-link
+        >&nbsp;|&nbsp;
+        <router-link
+          v-bind:to="{ name: 'logout' }"
+          v-if="$store.state.token != ''"
+          >Logout</router-link
+        >
+      </nav>
       <router-view class="content" />
     </div>
     <div v-if="isLoading">
       <img class="load-food" src="@/assets/Food_load.gif" />
     </div>
-    <footer class="footer">Bling, Bling</footer>
+    <footer class="footer">&copy; Team $Bling</footer>
   </div>
 </template>
 
@@ -52,66 +48,77 @@ export default {
 <style>
 body {
   /* display: grid; */
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 2fr 1fr;
   grid-template-areas:
-    "header header header header"
-    "content content content content"
-    "toe toe toe toe";
+    "header header nav"
+    "content content"
+    "footer footer";
   column-gap: 5px;
 }
 html {
   font-size: 18px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  /* font-style: oblique ; */
-  text-decoration-color: #400c0c;
-  /* margin-left: 5%; */
-
-  background-color: #fffddb;
-  /* background-image: url("https://wallpaperaccess.com/full/3353888.jpg");  */
+  font-family: "Yantramanav", sans-serif;
+  color: #400c0c;
+  background-color: rgba(98, 205, 217, 0.5);
 }
 header {
-  /* display: flex; */
-  /* flex-direction: row; */
+  display: flex;
+  flex-direction: row;
+  flex-grow: inherit;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: baseline;
+  margin-top: 0vh;
   grid-area: header;
-  background-color: #62cdd9;
-  width: 150%;
-  padding-left: 1em;
-  padding-top: 1em;
+  background-color: #fffddb;
+  min-width: 100%;
 }
-.navbar-text {
-  font-family: "Dosis", sans-serif;
+.logo {
+  width: 12%;
+  margin: 2%;
 }
-.content {
-  grid-area: content;
-  align-content: center;
+.title {
+  font-size: 4rem;
+  font-family: "Pacifico", cursive;
+  margin: -10px;
+  /* font-family: 'Permanent Marker', cursive; */
+}
+nav {
+  display: flex;
+  grid-area: nav;
 }
 footer {
   display: flex;
   position: static;
+  bottom: 0;
   grid-area: footer;
   justify-content: center;
-  background-color: black;
-  color: white;
+  background-color: #fffddb;
   padding: 2%;
   height: auto;
+  min-width: 100%;
 }
 
-nav {
-  margin-bottom: 1em;
-  padding-bottom: 10px;
+nav.navbar-buttons {
+  display: flex;
 }
-.logo {
-  width: auto;
-  height: 50px;
+.content {
+  margin-bottom: 20%;
+  grid-area: content;
+  align-content: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 /* div.nav-buttons {
   text-decoration: none;
 } */
-div.load-food {
+img.load-food {
+  display: flex;
+  /* justify-content: center;
+  align-content: center;
+  align-items: baseline; */
   height: 50%;
-  width: auto;
 }
 
 /* 

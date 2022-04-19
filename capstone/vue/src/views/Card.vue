@@ -17,21 +17,27 @@
       }}
     </div>
     <div class="search">
-      <button @click="isHost = !isHost" class="host">Are you the host?</button>
+      <button @click="isHost = !isHost" class="custom-btn host">
+        <span>Invite Friends</span>
+      </button>
       <input
+        class="search-input"
         type="date"
         v-if="isHost"
         placeholder="Expiration Date"
         v-model="expiration"
       />
       <input
+        class="search-input"
         v-if="isHost"
         @keyup.enter="hosting()"
         type="text"
         placeholder="Enter a city or zip code"
         v-model="groupZip"
       />
-      <button v-if="isHost" @click="hosting">Create Group</button>
+      <button class="custom-btn" v-if="isHost" @click="hosting">
+        <span>Send List to Friends</span>
+      </button>
       <p v-if="url">
         {{
           "Link to the list of cards that the host added for friends to agree or disagree on(Needs front end to display cards by id, not sure how to do this yet) " +
@@ -40,13 +46,16 @@
       </p>
     </div>
     <input
+      class="search-input"
       v-if="!isHost"
       @keyup.enter="getRestaurants()"
       type="text"
       placeholder="Enter a city or zip code"
       v-model="zip"
     />
-    <button v-if="!isHost" @click="getRestaurants()">Get Restaurants</button>
+    <button class="custom-btn" v-if="!isHost" @click="getRestaurants()">
+      <span>Search Restaurants</span>
+    </button>
     <restaurant-card
       :hosting="groupId"
       :restaurant="card"
@@ -119,20 +128,69 @@ div.search {
 }
 input {
   display: flex;
+  border-radius: 5px 0px 5px 0px;
   padding: 10px;
-  font-size: 16px;
+  font-size: 1em;
 }
 button {
   display: flex;
-  margin-top: 1em;
-  justify-content: center;
+  border: none;
+  z-index: 1;
   align-content: center;
-  margin-top: 10px;
-  background-image: radial-gradient(#ff0821, #ff5465);
-  padding: 5px 2px 5px 2px;
+  margin: 20px;
+  width: 75%;
+  height: 100%;
+  text-align: middle;
+}
+button span {
+  display: flex;
+  justify-content: center;
+  font-family: "Yantramanav", sans-serif;
+  font-size: 1.25em;
+}
+.custom-btn {
+  display: flex;
+  flex-shrink: 1;
+  height: 75px;
+  background-color: #f25c05;
+  color: #000;
   border-radius: 5px;
-  margin-bottom: 2%;
-  font-size: 16px;
+  padding: 10px 25px 10px 25px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  /* background: transparent; */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+button:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background-image: linear-gradient(to left, #f25c05, #f2b705);
+  border-radius: 5px;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  color: #fff;
+}
+button:hover:after {
+  left: 0;
+  width: 100%;
+}
+button:active {
+  top: 2px;
 }
 button.top {
   position: fixed;
