@@ -4,7 +4,7 @@
       <header class="header-logo-name">
         <img class="logo" src="@/assets/logo.png" href="/" />
         <h1 class="title">Meet2Eat</h1>
-        <img v-if="avatar != ''" :src="avatar"/>
+        <img class="avatar" v-if="avatar != ''" :src="avatar"/>
       </header>
       <nav class="navbar">
         <router-link v-bind:to="{ name: 'home' }">Home</router-link
@@ -59,6 +59,13 @@ body {
     "footer footer";
   column-gap: 5px;
 }
+.content {
+  margin-bottom: 20%;
+  grid-area: content;
+  align-content: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
 html {
   font-size: 18px;
   font-family: "Yantramanav", sans-serif;
@@ -87,6 +94,11 @@ header {
   margin: -10px;
   /* font-family: 'Permanent Marker', cursive; */
 }
+.avatar {
+  display: flex;
+  width: 75px;
+  height: 75px;
+}
 nav {
   display: flex;
   grid-area: nav;
@@ -102,16 +114,8 @@ footer {
   height: auto;
   min-width: 100%;
 }
-
 nav.navbar-buttons {
   display: flex;
-}
-.content {
-  margin-bottom: 20%;
-  grid-area: content;
-  align-content: center;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
 }
 /* div.nav-buttons {
   text-decoration: none;
