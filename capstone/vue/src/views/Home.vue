@@ -12,10 +12,12 @@
       </button>
       </router-link>
       <!-- Figure out the social networking/matchmaking elements -->
+      <router-link to='/meet'>
       <button class="custom-btn invite">
         <span>Find Food for You and Your Friends </span>
         <!-- redirects to Friends List ?? -->
       </button>
+      </router-link>
       <button class="custom-btn logout">
         <span>Logout</span>
         <!-- redirects back to login page -->

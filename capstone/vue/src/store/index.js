@@ -20,7 +20,8 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    userRestaurantList: []
+    userRestaurantList: [],
+    groupId: ""
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -41,6 +42,9 @@ export default new Vuex.Store({
     },
     ADD_TO_USER_LIST(state, restaurantId) {
       state.userRestaurantList.push(restaurantId);
+    },
+    SET_GROUP_ID(state, groupId){
+      state.groupId.push(groupId);
     }
   }
 })

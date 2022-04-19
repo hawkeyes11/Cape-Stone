@@ -16,7 +16,7 @@
           userRestaurantList
       }}
     </div>
-    <div class="search">
+    <!-- <div class="search">
       <button @click="isHost = !isHost" class="custom-btn host">
         <span>Invite Friends</span>
       </button>
@@ -44,7 +44,7 @@
             url
         }}
       </p>
-    </div>
+    </div> -->
     <input
       class="search-input"
       v-if="!isHost"
