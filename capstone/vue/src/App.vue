@@ -1,13 +1,11 @@
 <template>
   <div class="app">
     <div v-if="!isLoading">
-      <header>
-        <nav class="navbar">
-          <div class="header-logo-name">
+          <header class="header-logo-name">
             <img class="logo" src="@/assets/logo.png" href="/" />
             <h1 class="navbar-text">Meet2Eat</h1>
-          </div>
-          <div class="nav-buttons">
+          </header>
+          <nav class="navbar">
             <router-link v-bind:to="{ name: 'home' }">Home</router-link
             >&nbsp;|&nbsp;
             <router-link v-bind:to="{ name: 'card' }">Card</router-link
@@ -17,9 +15,7 @@
               v-if="$store.state.token != ''"
               >Logout</router-link
             >
-          </div>
         </nav>
-      </header>
       <router-view class="content" />
     </div>
     <div v-if="isLoading">
@@ -65,46 +61,45 @@ html {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   /* font-style: oblique ; */
-  text-decoration-color: #400c0c;
+  color: #400c0c;
   /* margin-left: 5%; */
-
   background-color: #fffddb;
   /* background-image: url("https://wallpaperaccess.com/full/3353888.jpg");  */
 }
 header {
-  /* display: flex; */
-  /* flex-direction: row; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   grid-area: header;
   background-color: #62cdd9;
-  width: 150%;
-  padding-left: 1em;
-  padding-top: 1em;
+  width: 100%;
+  padding: 1em;
 }
-.navbar-text {
-  font-family: "Dosis", sans-serif;
+.logo {
+  width: 150px;
+  height: auto;
 }
-.content {
-  grid-area: content;
-  align-content: center;
-}
+
 footer {
   display: flex;
-  position: static;
   grid-area: footer;
   justify-content: center;
   background-color: black;
   color: white;
   padding: 2%;
   height: auto;
+  width: 100%;
 }
+.navbar-text {
+  font-family: "Dosis", sans-serif;
+}
+.navbar-buttons {
+  display: flex;
 
-nav {
-  margin-bottom: 1em;
-  padding-bottom: 10px;
 }
-.logo {
-  width: auto;
-  height: 50px;
+.content {
+  grid-area: content;
+  align-content: center;
 }
 /* div.nav-buttons {
   text-decoration: none;
