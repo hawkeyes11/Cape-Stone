@@ -5,13 +5,15 @@
     </div>
     <div class="options">
       <h3>Hungry?</h3>
+      <router-link to='/card'>
       <button class="custom-btn find-restaurant">
-        <span>Find Food</span>
+        <span>Find Food for You</span>
         <!-- redirects to Restaurant Cards -->
       </button>
+      </router-link>
       <!-- Figure out the social networking/matchmaking elements -->
       <button class="custom-btn invite">
-        <span>The Usual? (Favorite Restaurants)</span>
+        <span>Find Food for You and Your Friends </span>
         <!-- redirects to Friends List ?? -->
       </button>
       <button class="custom-btn logout">

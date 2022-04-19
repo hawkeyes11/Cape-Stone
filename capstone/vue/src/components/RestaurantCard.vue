@@ -1,6 +1,6 @@
 <template>
   <div class="restaurant-cards">
-    <button class="dislike">Yuck it!</button>
+    <button class="dislike">Hate it!</button>
     <div class="card">  
       <h2 class="name">{{ restaurant.name }}</h2>
       <div class="address">

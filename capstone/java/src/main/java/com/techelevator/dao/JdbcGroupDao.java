@@ -106,6 +106,7 @@ public class JdbcGroupDao implements GroupDao {
 
     }
 
+
     private RestaurantCounts mapRowToRestaurant(SqlRowSet s){
         RestaurantCounts restaurant = new RestaurantCounts(s.getString("restaurant_id"), s.getInt("counter"));
 
