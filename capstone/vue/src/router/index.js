@@ -8,6 +8,7 @@ import Card from '../views/Card.vue'
 import UserProfile from '../views/UserProfile.vue'
 import store from '../store/index'
 import GroupInvite from '../views/GroupInvite.vue'
+import GroupRoom from '../views/GroupRoom.vue'
 
 Vue.use(Router)
 
@@ -74,9 +75,17 @@ const router = new Router({
 
   },
   {
-    path: "/meet/:groupId",
+    path: "/meet",
     name: "meet",
     component: GroupInvite,
+    meta: {
+        requiresAuth: false
+    }
+  },
+  {
+    path: "/join/:groupId",
+    name: "join",
+    component: GroupRoom,
     meta: {
         requiresAuth: false
     }
