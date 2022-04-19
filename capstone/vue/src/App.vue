@@ -96,6 +96,7 @@ header {
 }
 .avatar {
   display: flex;
+  justify-content: flex-end;
   width: 75px;
   height: 75px;
 }
