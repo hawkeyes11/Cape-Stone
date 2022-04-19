@@ -58,6 +58,13 @@ public class RestaurantController {
     //year-month-day
     public String createInvite(@RequestParam(value = "location") String location, @RequestParam(value = "expiration")Date date) {
         int id = jdbcGroupDao.createGroup(location, date);
+
+        List<Restaurant> restaurants = getRestaurants(location);
+
+        for (Restaurant restaurant : restaurants){
+            jdbcGroupDao.addToFavorites(id, restaurant.getRestaurantId());
+        }
+
         return "http://localhost:8080/join/" + id;
     }
 
@@ -65,8 +72,10 @@ public class RestaurantController {
     @ResponseStatus(HttpStatus.ACCEPTED)
     @PostMapping("/{id}")
     public void addRestaurantToGroupList(@PathVariable(value = "id") int id, @RequestBody Restaurant restaurant) {
-        jdbcGroupDao.addToFavorites(id, restaurant.getRestaurantId());
+//        jdbcGroupDao.addToFavorites(id, restaurant.getRestaurantId());
+         jdbcGroupDao.addToCounter(id, restaurant.getRestaurantId());
     }
+    //todo make sure i didnt put this in wrong spot
 
 //    @ResponseStatus(HttpStatus.ACCEPTED)
 //    @PostMapping("/{id}")

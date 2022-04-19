@@ -32,6 +32,7 @@ CREATE TABLE groups (
 CREATE TABLE group_favorites (
     group_id int NOT NULL,
     restaurant_id varchar(69) NOT NULL,
+    counter int NOT NULL DEFAULT 0,
 
     FOREIGN KEY (group_id) REFERENCES groups(group_id)
 );

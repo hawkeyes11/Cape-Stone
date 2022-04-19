@@ -64,12 +64,20 @@ public class JdbcGroupDao implements GroupDao {
 
     public void addToFavorites(int group_id, String restaurant_id) {
 
+
         String sql = "insert into group_favorites (group_id, restaurant_id)" +
                 " values (?,?);";
 
         jdbcTemplate.update(sql,
                 group_id,
                 restaurant_id);
+    }
+
+    public void addToCounter(int group_id, String restaurant_id){
+        String sql = "UPDATE group_favorites " +
+                     "SET counter = counter + 1 "+
+                     "WHERE group_id = ? AND restaurant_id = ?;";
+        jdbcTemplate.update(sql, group_id, restaurant_id);
     }
 
     public List<Restaurant> getRestaurantIdsByGroupId(int group_id){
