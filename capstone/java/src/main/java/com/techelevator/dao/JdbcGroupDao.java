@@ -66,15 +66,23 @@ public class JdbcGroupDao implements GroupDao {
 
     public void addToFavorites(int group_id, String restaurant_id) {
 
+
         String sql = "insert into group_favorites (group_id, restaurant_id)" +
                 " values (?,?);";
 
         jdbcTemplate.update(sql, group_id, restaurant_id);
     }
 
+    public void addToCounter(int group_id, String restaurant_id){
+        String sql = "UPDATE group_favorites " +
+                     "SET counter = counter + 1 "+
+                     "WHERE group_id = ? AND restaurant_id = ?;";
+        jdbcTemplate.update(sql, group_id, restaurant_id);
+    }
+
     public List<Restaurant> getRestaurantIdsByGroupId(int group_id) throws Exception {
         DateTimeFormatter dt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDateTime now = LocalDateTime.now();
+        LocalDateTime now = LocalDateTime.now();3
         List<Restaurant> listOfRestaurants= new ArrayList<>();
         Date today = Date.valueOf(now.format(dt));
         String sql = "select expiration_date from groups where group_id = ?";
