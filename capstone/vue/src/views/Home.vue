@@ -1,8 +1,10 @@
 <template>
-  <div class="homepage content">
-    <h2>Welcome back USERNAME</h2>
-    <p>Hungry?</p>
+  <div>
+    <div class="homepage-welcome">
+      <h2>Welcome back to Meet2Eat {username}!</h2>
+    </div>
     <div class="options">
+      <h3>Hungry?</h3>
       <button class="custom-btn find-restaurant">
         <span>Find a Restaurant</span>
         <!-- redirects to Restaurant Cards -->
@@ -29,23 +31,43 @@ export default {
 </script>
 
 <style scoped>
-.homepage {
+.homepage-welcome {
   display: flex;
+  justify-content: center;
+}
+
+.options {
+  display: flex;
+  /* font-family: 'Yantramanav', sans-serif; */
+  justify-content: center;
   flex-direction: column;
-  align-items: center;
   background-color: #0aa605;
-  padding-bottom: 1em;
-  margin-bottom: 1em;
-  border-radius: 10px;
-  height: 500px;
+  width: 75%;
+  border-radius: 15px;
+  margin: auto;
+  padding: 1%;
+  height: auto;
+  filter: drop-shadow(3px 3px 10px #000000);
+}
+button {
+  display: flex;
+  border: none;
+  z-index: 1;
+  align-content: center;
+  margin: 20px;
+  width: 750px;
+  height: 100%;
+  text-align: middle;
+}
+button span {
+  font-family: 'Yantramanav', sans-serif;
 }
 .custom-btn {
-  width: 100%;
   height: 75px;
   background-color: #f25c05;
   color: #000;
   border-radius: 5px;
-  padding: 10px 25px;
+  padding: 10px 25px 10px 25px;
   font-family: "Lato", sans-serif;
   font-weight: 500;
   /* background: transparent; */
@@ -56,17 +78,6 @@ export default {
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
-}
-button {
-  display: flex;
-  background: #b621fe;
-  border: none;
-  z-index: 1;
-  align-content: center;
-  margin: 20px;
-  width: 750px;
-  height: 100%;
-  text-align: middle;
 }
 
 button:after {
@@ -95,7 +106,32 @@ button:active {
   top: 2px;
 }
 button.logout {
-  background-color: cadetblue;
+  background-color: #f21616;
   width: 25%;
+}
+button.logout:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  background-image: linear-gradient(to left, #f21616, #f25c05);
+  border-radius: 5px;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+button.logout:hover {
+  color: #fff;
+}
+button.logout:hover:after {
+  left: 0;
+  width: 100%;
+}
+button.logout:active {
+  top: 2px;
 }
 </style>

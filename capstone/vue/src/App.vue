@@ -21,7 +21,7 @@
     <div v-if="isLoading">
       <img class="load-food" src="@/assets/Food_load.gif" />
     </div>
-    <footer class="footer">Bling, Bling</footer>
+    <footer class="footer">&copy; Team $Bling</footer>
   </div>
 </template>
 
@@ -58,32 +58,32 @@ body {
 }
 html {
   font-size: 18px;
+  font-family: 'Yantramanav', sans-serif;
   color: #400c0c;
   /* margin-left: 5%; */
-  background-color: #fffddb;
-  /* background-image: url("https://wallpaperaccess.com/full/3353888.jpg");  */
+  background-color: rgba(98, 205, 217, 0.5);
 }
 header {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   grid-area: header;
-  background-color: #62cdd9;
+  background-color: #fffddb;
   width: auto;
-  height: auto;
   flex-wrap: wrap;
+  margin: 0;
 }
 .logo {
   display: flex;
-  width: 150px;
+  width: 125px;
   height: auto;
   padding-left: 2%;
+  padding-right: 2%;
 }
 header h1 {
   display: flex;
-  font-size: 60px;
+  font-size: 70px;
   font-family: "Pacifico", cursive;
   /* font-family: 'Permanent Marker', cursive; */
-  padding-left: 2%;
 }
 nav {
   display: flex;
@@ -91,12 +91,11 @@ nav {
 }
 footer {
   display: flex;
-  position: static;
-  align-self: flex-end;
+  position: fixed;
+  bottom: 0;
   grid-area: footer;
   justify-content: center;
-  background-color: black;
-  color: white;
+  background-color: #fffddb;
   padding: 2%;
   height: auto;
   width: 100%;
@@ -114,9 +113,13 @@ nav.navbar-buttons {
 /* div.nav-buttons {
   text-decoration: none;
 } */
-div.load-food {
+img.load-food {
+  display: flex;
+  /* justify-content: center;
+  align-content: center;
+  align-items: baseline; */
   height: 50%;
-  width: auto;
+
 }
 
 /* 
