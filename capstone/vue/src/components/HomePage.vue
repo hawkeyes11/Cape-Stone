@@ -24,18 +24,6 @@ export default {
 
 
 <style scoped>
- section {
-    display: flex;
-}
-h2 {
-
-}
-button {
-
-}
-img {
-
-}
 
 /* .btn-15 {
   background: #b621fe;

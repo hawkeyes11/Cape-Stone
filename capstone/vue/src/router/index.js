@@ -69,8 +69,15 @@ const router = new Router({
     component: UserProfile,
     meta: {
         requiresAuth: false
-    }
-  }
+    },
+  },
+  // {
+  //   path: "/meet",
+  //   name: "meet",
+  //   component: GroupInvite,
+  //   meta: {
+  //       requiresAuth: false
+  //   }
   ]
 })
 
