@@ -3,10 +3,10 @@
     <div v-if="!isLoading">
       <header>
         <nav class="navbar">
-            <div class="header-logo-name">
-              <img class="logo" src="@/assets/logo.png" href="/" />
-              <h1 class="navbar-text">APP TITLE</h1>
-            </div>
+          <div class="header-logo-name">
+            <img class="logo" src="@/assets/logo.png" href="/" />
+            <h1 class="navbar-text">Meet2Eat</h1>
+          </div>
           <div class="nav-buttons">
             <router-link v-bind:to="{ name: 'home' }">Home</router-link
             >&nbsp;|&nbsp;
@@ -22,7 +22,7 @@
       </header>
       <router-view class="content" />
     </div>
-     <div v-if="isLoading">
+    <div v-if="isLoading">
       <img class="load-food" src="@/assets/Food_load.gif" />
     </div>
     <footer class="footer">Bling, Bling</footer>
@@ -50,8 +50,8 @@ export default {
 </script>
 
 <style>
-body{
-/* display: grid; */
+body {
+  /* display: grid; */
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 2fr 1fr;
   grid-template-areas:
@@ -65,25 +65,23 @@ html {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   /* font-style: oblique ; */
-  text-decoration-color: #400C0C;
+  text-decoration-color: #400c0c;
   /* margin-left: 5%; */
 
-  background-color: #FFFDDB;
+  background-color: #fffddb;
   /* background-image: url("https://wallpaperaccess.com/full/3353888.jpg");  */
- 
 }
 header {
   /* display: flex; */
   /* flex-direction: row; */
   grid-area: header;
-  background-color: #62CDD9;
+  background-color: #62cdd9;
   width: 150%;
   padding-left: 1em;
   padding-top: 1em;
 }
 .navbar-text {
-  font-family: 'Dosis', sans-serif;
- 
+  font-family: "Dosis", sans-serif;
 }
 .content {
   grid-area: content;
@@ -114,7 +112,6 @@ nav {
 div.load-food {
   height: 50%;
   width: auto;
-  
 }
 
 /* 
@@ -199,6 +196,4 @@ div.load-food {
 .color-theme_DSC_3862-5-hsla {
   color: hsla(27, 48, 80, 1);
 }
-
-
 </style>
