@@ -1,6 +1,6 @@
 <template>
   <div class="restaurant-cards">
-    <button class="dislike">Hate it</button>
+    <button class="dislike">Yuck it!</button>
     <div class="card">  
       <h2 class="name">{{ restaurant.name }}</h2>
       <div class="address">
@@ -33,7 +33,7 @@
       <!-- TODO correctly concat strings of categories -->
       <p v-for="c in restaurant.categories" :key="c.id">{{ c }}</p>
     </div>
-    <button @click="addToList()" class="like">Yummy!</button>
+    <button @click="addToList()" class="like">Love it!</button>
   </div>
 </template>
 
@@ -60,6 +60,12 @@ export default {
 </script>
 
 <style scoped>
+.restaurant-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 1%;
+}
 .card {
   border-radius: 20px;
   background-color: #fbf2eb;
@@ -69,12 +75,10 @@ export default {
   /* height: 35rem; */
   justify-content: center;
   align-items: left;
-  padding-left: 1em;
   /* padding-right: 1em; */
-  padding-bottom: 1em;
-  /* margin: 4rem auto; */
-  margin-top: 1em;
-  /* width: 100%; */
+  padding: 1%;
+  margin: 2%;
+  width: 90%;
 }
 div > h2.name {
   /* display: flex; */
@@ -102,6 +106,11 @@ div.phone {
 }
 div.hours {
   /* display: flex; */
+}
+img {
+  display: flex;
+  width: 50%;
+  height: auto;
 }
 
 
