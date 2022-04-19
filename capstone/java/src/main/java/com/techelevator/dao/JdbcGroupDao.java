@@ -82,7 +82,7 @@ public class JdbcGroupDao implements GroupDao {
 
     public List<Restaurant> getRestaurantIdsByGroupId(int group_id) throws Exception {
         DateTimeFormatter dt = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDateTime now = LocalDateTime.now();3
+        LocalDateTime now = LocalDateTime.now();
         List<Restaurant> listOfRestaurants= new ArrayList<>();
         Date today = Date.valueOf(now.format(dt));
         String sql = "select expiration_date from groups where group_id = ?";
