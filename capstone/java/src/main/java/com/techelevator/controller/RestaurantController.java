@@ -5,6 +5,7 @@ import com.techelevator.Services.RestaurantServiceAPI;
 import com.techelevator.dao.JdbcGroupDao;
 import com.techelevator.model.Category;
 import com.techelevator.model.Restaurant;
+import com.techelevator.model.RestaurantCounts;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -79,7 +80,7 @@ public class RestaurantController {
 
 
     @GetMapping("/join/{id}")
-    public List<Restaurant> getGroupRestaurants(@PathVariable() int id) throws Exception {
+    public List<RestaurantCounts> getGroupRestaurants(@PathVariable() int id) throws Exception {
         return jdbcGroupDao.getRestaurantIdsByGroupId(id);
     }
 
