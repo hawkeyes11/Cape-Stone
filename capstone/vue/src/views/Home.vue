@@ -6,12 +6,12 @@
     <div class="options">
       <h3>Hungry?</h3>
       <button class="custom-btn find-restaurant">
-        <span>Find a Restaurant</span>
+        <span>Find Food</span>
         <!-- redirects to Restaurant Cards -->
       </button>
       <!-- Figure out the social networking/matchmaking elements -->
       <button class="custom-btn invite">
-        <span>Saved Restaurants</span>
+        <span>The Usual? (Favorite Restaurants)</span>
         <!-- redirects to Friends List ?? -->
       </button>
       <button class="custom-btn logout">
@@ -33,16 +33,19 @@ export default {
 <style scoped>
 .homepage-welcome {
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  margin-left: 10%;
 }
 
 .options {
   display: flex;
   /* font-family: 'Yantramanav', sans-serif; */
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   background-color: #0aa605;
   width: 75%;
+  height: 75%;
   border-radius: 15px;
   margin: auto;
   padding: 1%;
@@ -55,14 +58,19 @@ button {
   z-index: 1;
   align-content: center;
   margin: 20px;
-  width: 750px;
+  width: 75%;
   height: 100%;
   text-align: middle;
 }
 button span {
-  font-family: 'Yantramanav', sans-serif;
+  display: flex;
+  justify-content: center;
+  font-family: "Yantramanav", sans-serif;
+  font-size: 1.25em;
 }
 .custom-btn {
+  display: flex;
+  flex-shrink: 1;
   height: 75px;
   background-color: #f25c05;
   color: #000;
@@ -79,7 +87,6 @@ button span {
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
 }
-
 button:after {
   position: absolute;
   content: "";
@@ -117,7 +124,7 @@ button.logout:after {
   top: 0;
   right: 0;
   z-index: -1;
-  background-image: linear-gradient(to left, #f21616, #f25c05);
+  background-image: linear-gradient(to left, black, #f21616);
   border-radius: 5px;
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
     7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);

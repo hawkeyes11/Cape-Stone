@@ -60,6 +60,12 @@ export default {
 </script>
 
 <style scoped>
+.restaurant-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 1%;
+}
 .card {
   border-radius: 20px;
   background-color: #fbf2eb;
@@ -69,12 +75,10 @@ export default {
   /* height: 35rem; */
   justify-content: center;
   align-items: left;
-  padding-left: 1em;
   /* padding-right: 1em; */
-  padding-bottom: 1%;
+  padding: 1%;
   margin: 2%;
-  margin-top: 1em;
-  max-width: 1080px;
+  width: 90%;
 }
 div > h2.name {
   /* display: flex; */

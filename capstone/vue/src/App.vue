@@ -3,12 +3,12 @@
     <div v-if="!isLoading">
       <header class="header-logo-name">
         <img class="logo" src="@/assets/logo.png" href="/" />
-        <h1 class="navbar-text">Meet2Eat</h1>
+        <h1 class="title">Meet2Eat</h1>
       </header>
       <nav class="navbar">
         <router-link v-bind:to="{ name: 'home' }">Home</router-link
         >&nbsp;|&nbsp;
-        <router-link v-bind:to="{ name: 'card' }">Card</router-link
+        <router-link v-bind:to="{ name: 'card' }">Search</router-link
         >&nbsp;|&nbsp;
         <router-link
           v-bind:to="{ name: 'logout' }"
@@ -58,31 +58,30 @@ body {
 }
 html {
   font-size: 18px;
-  font-family: 'Yantramanav', sans-serif;
+  font-family: "Yantramanav", sans-serif;
   color: #400c0c;
-  /* margin-left: 5%; */
   background-color: rgba(98, 205, 217, 0.5);
 }
 header {
   display: flex;
+  flex-direction: row;
+  flex-grow: inherit;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   align-items: baseline;
+  margin-top: 0vh;
   grid-area: header;
   background-color: #fffddb;
-  width: auto;
-  flex-wrap: wrap;
-  margin: 0;
+  min-width: 100%;
 }
 .logo {
-  display: flex;
-  width: 125px;
-  height: auto;
-  padding-left: 2%;
-  padding-right: 2%;
+  width: 12%;
+  margin: 2%;
 }
-header h1 {
-  display: flex;
-  font-size: 70px;
+.title {
+  font-size: 4rem;
   font-family: "Pacifico", cursive;
+  margin: -10px;
   /* font-family: 'Permanent Marker', cursive; */
 }
 nav {
@@ -91,20 +90,21 @@ nav {
 }
 footer {
   display: flex;
-  position: fixed;
+  position: static;
   bottom: 0;
   grid-area: footer;
   justify-content: center;
   background-color: #fffddb;
   padding: 2%;
   height: auto;
-  width: 100%;
+  min-width: 100%;
 }
 
 nav.navbar-buttons {
   display: flex;
 }
 .content {
+  margin-bottom: 20%;
   grid-area: content;
   align-content: center;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
@@ -119,7 +119,6 @@ img.load-food {
   align-content: center;
   align-items: baseline; */
   height: 50%;
-
 }
 
 /* 
