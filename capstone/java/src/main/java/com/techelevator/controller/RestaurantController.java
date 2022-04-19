@@ -79,7 +79,7 @@ public class RestaurantController {
     //todo make sure i didnt put this in wrong spot
 
 
-    @GetMapping("/join/{id}")
+    @GetMapping("/groupinfo/{id}")
     public List<RestaurantCounts> getGroupRestaurants(@PathVariable() int id) throws Exception {
         return jdbcGroupDao.getRestaurantIdsByGroupId(id);
     }
