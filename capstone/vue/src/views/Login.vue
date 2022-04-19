@@ -83,17 +83,19 @@ export default {
   justify-content: center;
   align-items: center;
   margin: 1rem auto;
+  width: 100%;
 }
 form.form-signin {
   display: flex;
   flex-direction: column;
-  background-color: #0aa605;
-  width: 75%;
+  background-color: #0AA605;
+  width: 100%;
   border-radius: 15px;
   margin: 10px;
   padding: 1%;
   height: auto;
   width: 50%;
+  filter: drop-shadow(3px 3px 10px #000000);
 }
 label {
   display: flex;
@@ -111,7 +113,7 @@ input#username {
   width: 50%;
   padding: 10px;
   font-family: monospace;
-  font-size: 16px;
+  font-size: .75rem;
 }
 label.password {
   display: flex;

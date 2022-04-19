@@ -1,21 +1,21 @@
 <template>
   <div class="app">
     <div v-if="!isLoading">
-          <header class="header-logo-name">
-            <img class="logo" src="@/assets/logo.png" href="/" />
-            <h1 class="navbar-text">Meet2Eat</h1>
-          </header>
-          <nav class="navbar">
-            <router-link v-bind:to="{ name: 'home' }">Home</router-link
-            >&nbsp;|&nbsp;
-            <router-link v-bind:to="{ name: 'card' }">Card</router-link
-            >&nbsp;|&nbsp;
-            <router-link
-              v-bind:to="{ name: 'logout' }"
-              v-if="$store.state.token != ''"
-              >Logout</router-link
-            >
-        </nav>
+      <header class="header-logo-name">
+        <img class="logo" src="@/assets/logo.png" href="/" />
+        <h1 class="navbar-text">Meet2Eat</h1>
+      </header>
+      <nav class="navbar">
+        <router-link v-bind:to="{ name: 'home' }">Home</router-link
+        >&nbsp;|&nbsp;
+        <router-link v-bind:to="{ name: 'card' }">Card</router-link
+        >&nbsp;|&nbsp;
+        <router-link
+          v-bind:to="{ name: 'logout' }"
+          v-if="$store.state.token != ''"
+          >Logout</router-link
+        >
+      </nav>
       <router-view class="content" />
     </div>
     <div v-if="isLoading">
@@ -48,19 +48,16 @@ export default {
 <style>
 body {
   /* display: grid; */
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 2fr 1fr;
   grid-template-areas:
-    "header header header header"
-    "content content content content"
-    "toe toe toe toe";
+    "header header nav"
+    "content content"
+    "footer footer";
   column-gap: 5px;
 }
 html {
   font-size: 18px;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  /* font-style: oblique ; */
   color: #400c0c;
   /* margin-left: 5%; */
   background-color: #fffddb;
@@ -68,20 +65,34 @@ html {
 }
 header {
   display: flex;
-  flex-direction: row;
   align-items: center;
   grid-area: header;
   background-color: #62cdd9;
-  width: 100%;
-  padding: 1em;
+  width: auto;
+  height: auto;
+  flex-wrap: wrap;
 }
 .logo {
+  display: flex;
   width: 150px;
   height: auto;
+  padding-left: 2%;
 }
-
+header h1 {
+  display: flex;
+  font-size: 60px;
+  font-family: "Pacifico", cursive;
+  /* font-family: 'Permanent Marker', cursive; */
+  padding-left: 2%;
+}
+nav {
+  display: flex;
+  grid-area: nav;
+}
 footer {
   display: flex;
+  position: static;
+  align-self: flex-end;
   grid-area: footer;
   justify-content: center;
   background-color: black;
@@ -90,16 +101,15 @@ footer {
   height: auto;
   width: 100%;
 }
-.navbar-text {
-  font-family: "Dosis", sans-serif;
-}
-.navbar-buttons {
-  display: flex;
 
+nav.navbar-buttons {
+  display: flex;
 }
 .content {
   grid-area: content;
   align-content: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 /* div.nav-buttons {
   text-decoration: none;

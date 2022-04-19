@@ -108,22 +108,25 @@ export default {
 
 <style scoped>
 #register {
-  position: relative;
+   position: relative;
   display: flex;
   flex-direction: column;
-  height: 35rem;
   justify-content: center;
   align-items: center;
-  margin: 4rem auto;
+  margin: 1rem auto;
+  width: 100%;
 }
 form.form-register {
-  display: flex;
+   display: flex;
   flex-direction: column;
-  background-color: #fbf2eb;
-  width: 750px;
+  background-color: #0AA605;
+  width: 100%;
   border-radius: 15px;
-  padding: 2.5%;
-  height: 100%;
+  margin: 10px;
+  padding: 1%;
+  height: auto;
+  width: 50%;
+  filter: drop-shadow(3px 3px 10px #000000);
 }
 label {
   display: flex;
@@ -141,7 +144,7 @@ input#username {
   width: 50%;
   padding: 10px;
   font-family: monospace;
-  font-size: 16px;
+  font-size: .75rem;
 }
 label.password {
   display: flex;
@@ -154,6 +157,7 @@ input#password {
   width: 50%;
   padding: 10px;
   font-family: monospace;
+  font-size: .75rem;
 }
 label.confirmPassword {
   display: flex;
@@ -166,6 +170,7 @@ input#confirmPassword {
   padding: 10px;
   margin-bottom: 5%;
   font-family: monospace;
+  font-size: .75rem;
 }
 form#login {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
