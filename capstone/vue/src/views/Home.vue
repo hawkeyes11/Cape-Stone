@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="homepage-welcome">
-      <h2>Welcome back to Meet2Eat {username}!</h2>
+      <h2>Welcome back to Meet2Eat {{username}}!</h2>
     </div>
     <div class="options">
       <h3>Hungry?</h3>
@@ -27,6 +27,11 @@
 
 export default {
   name: "home",
+  data() {
+    return {
+      username: this.$store.state.user.username
+    }
+  }
 };
 </script>
 
