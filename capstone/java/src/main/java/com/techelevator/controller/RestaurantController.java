@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @RestController
 @CrossOrigin
@@ -88,6 +85,8 @@ public class RestaurantController {
     @GetMapping("/finalist/{id}")
     public List<Restaurant> getGroupFinalist(@PathVariable() int id) throws Exception {
         List<RestaurantCounts> restaurantCounts = jdbcGroupDao.getRestaurantIdsByGroupId(id);
+        Collections.sort(restaurantCounts, Comparator.comparing(RestaurantCounts::getCounter));
+        Collections.reverse(restaurantCounts);
         List<Restaurant> restaurantList = new ArrayList<>();
         for (RestaurantCounts restCount : restaurantCounts) {
             restaurantList.add(restaurantServiceAPI.getRestaurantByRestaurantId(restCount.getRestaurantId()));

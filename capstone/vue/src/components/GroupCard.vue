@@ -1,6 +1,6 @@
 <template>
   <div class="restaurant-cards">
-    <img src="../assets/thumbsDown.png" @click="dislike()" class="dislike" />
+    
     <div class="card">
       <h2 class="name">{{ restaurant.name }}</h2>
       <div class="address">
@@ -39,7 +39,7 @@
         <li v-for="c in restaurant.categories" :key="c.id">{{ c }}</li>
       </ul>
     </div>
-    <img src="../assets/thumbsUp.png" @click="addToList()" class="like" />
+  
   </div>
 </template>
 
@@ -63,9 +63,7 @@ export default {
       }
     },
     dislike(){
-      if (this.hosting){
       alert("Restaurant Disliked")
-      }
     }
   },
 };

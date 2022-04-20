@@ -1,26 +1,31 @@
 <template>
   <div>
     <div class="homepage-welcome">
-      <h2>Welcome back {{username}}!</h2>
+      <h2>Welcome back {{ username }}!</h2>
     </div>
     <div class="options">
       <h3>Hungry?</h3>
+      <button @click="$router.push('/meet')" class="custom-btn invite">
+        <span>Find Food for You and Your Friends </span>
+        <!-- redirects to Friends List ?? -->
+      </button>
       <button @click="$router.push('/card')" class="custom-btn find-restaurant">
         <span>Find Food for You</span>
         <!-- redirects to Restaurant Cards -->
       </button>
       <!-- Figure out the social networking/matchmaking elements -->
-      <button @click="$router.push('/meet')" class="custom-btn invite">
-        <span>Find Food for You and Your Friends </span>
-        <!-- redirects to Friends List ?? -->
-      </button>
-      <button @click="showInput = !showInput" class= "custom-btn final">
-      <span> Go to Group List </span>
+      <button @click="showInput = !showInput" class="custom-btn final">
+        <span> Go to Group List </span>
       </button>
       <div v-if="showInput">
-        <label for="groupIdInput" >Enter id of your group</label>
+        <label for="groupIdInput">Enter id of your group</label>
         <input v-model="groupId" id="groupIdInput" />
-        <button class= "custom-btn final" @click="$router.push({ name: 'groupLisp', params: {groupId}})">Go to group finalist</button>
+        <button
+          class="custom-btn final"
+          @click="$router.push({ name: 'groupLisp', params: { groupId } })"
+        >
+          Go to group finalist
+        </button>
       </div>
       <!-- <button @click="$router.push('/')" class="custom-btn logout">
         <span>Logout</span>
@@ -38,9 +43,9 @@ export default {
     return {
       username: this.$store.state.user.username,
       showInput: false,
-      groupId: ""
-    }
-  }
+      groupId: "",
+    };
+  },
 };
 </script>
 
