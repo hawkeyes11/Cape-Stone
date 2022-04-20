@@ -75,13 +75,27 @@ public class RestaurantController {
 //        jdbcGroupDao.addToFavorites(id, restaurant.getRestaurantId());
          jdbcGroupDao.addToCounter(id, restaurant.getRestaurantId());
     }
-    //todo make sure i didnt put this in wrong spot
 
 
     @GetMapping("/groupinfo/{id}")
-    public List<RestaurantCounts> getGroupRestaurants(@PathVariable() int id) throws Exception {
-        return jdbcGroupDao.getRestaurantIdsByGroupId(id);
+    public List<Restaurant> getGroupRestaurants(@PathVariable() int id) throws Exception {
+        String location = jdbcGroupDao.getLocationByGroupId(id);
+        List<Restaurant> restaurantList = restaurantServiceAPI.getRestaurants(location);
+        return restaurantList;
     }
+
+//gets all places with votes may need to get just one place with most votes
+    @GetMapping("/finalist/{id}")
+    public List<Restaurant> getGroupFinalist(@PathVariable() int id) throws Exception {
+        List<RestaurantCounts> restaurantCounts = jdbcGroupDao.getRestaurantIdsByGroupId(id);
+        List<Restaurant> restaurantList = new ArrayList<>();
+        for (RestaurantCounts restCount : restaurantCounts) {
+            restaurantList.add(restaurantServiceAPI.getRestaurantByRestaurantId(restCount.getRestaurantId()));
+        }
+
+        return restaurantList;
+    }
+
 
 
 }
