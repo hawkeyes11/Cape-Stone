@@ -95,7 +95,7 @@ public class JdbcGroupDao implements GroupDao {
 
         sql = "select restaurant_id, counter" +
                     " from group_favorites" +
-                    " where group_favorites.group_id = ? and counter > 0;";
+                    " where group_favorites.group_id = ?;";
 
         SqlRowSet listOfIds = jdbcTemplate.queryForRowSet(sql, group_id);
 
