@@ -185,7 +185,7 @@ button {
   z-index: 1;
   align-content: center;
   margin: 20px;
-  width: 750px;
+  width: 75%;
   height: 100%;
   text-align: middle;
 }
