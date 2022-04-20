@@ -5,6 +5,8 @@
     <div class="options" >
         <button id="find-restaurant"><span>Find a Restaurant</span> <!-- redirects to Restaurant Cards -->
         </button> 
+        <button id = "final list"><span>Go to Final List</span>
+        </button>
         <!-- Figure out the social networking/matchmaking elements -->
         <button id="invite"><span>Invite a Friend</span>    <!-- redirects to Friends List ?? -->
         </button> 

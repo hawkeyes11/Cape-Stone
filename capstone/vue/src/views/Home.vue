@@ -14,6 +14,9 @@
         <span>Find Food for You and Your Friends </span>
         <!-- redirects to Friends List ?? -->
       </button>
+      <button @click="$router.push('/')" class= "custom-btn final">
+      <span> Go to Group List </span>
+      </button>
       <button @click="$router.push('/')" class="custom-btn logout">
         <span>Logout</span>
         <!-- redirects back to login page -->
@@ -123,7 +126,6 @@ button.logout {
   height: 50%;
 }
 button.logout:after {
-  justify-content: flex-end;
   position: absolute;
   content: "";
   width: 0;

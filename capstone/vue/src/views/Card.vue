@@ -141,6 +141,7 @@ input {
   border-radius: 5px 0px 5px 0px;
   padding: 10px;
   font-size: 1em;
+  outline: none;
 }
 button {
   display: flex;
