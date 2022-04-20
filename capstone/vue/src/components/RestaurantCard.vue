@@ -4,8 +4,8 @@
     <div class="card">
       <h2 class="name">{{ restaurant.name }}</h2>
       <div class="address">
-        Address: {{ restaurant.display_address[0] }}
-        {{ restaurant.display_address[1] }}
+        <a target="_blank" :href="'https://www.google.com/maps/place/' +  restaurant.display_address[0] + '+' + restaurant.display_address[1]">Address: {{ restaurant.display_address[0] }}
+        {{ restaurant.display_address[1] }}</a>
       </div>
       <a :href="'tel:' + restaurant.display_phone" class="phone"
         >Call to Order: {{ restaurant.display_phone }}</a

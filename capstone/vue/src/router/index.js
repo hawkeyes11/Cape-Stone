@@ -9,6 +9,7 @@ import UserProfile from '../views/UserProfile.vue'
 import store from '../store/index'
 import GroupInvite from '../views/GroupInvite.vue'
 import GroupRoom from '../views/GroupRoom.vue'
+import GroupLisp from '../views/GroupLisp.vue'
 
 Vue.use(Router)
 
@@ -88,6 +89,14 @@ const router = new Router({
     component: GroupRoom,
     meta: {
         requiresAuth: false
+    }
+  },
+  {
+    path: "/groupLisp/:groupId",
+    name: "groupLisp",
+    component: GroupLisp,
+    meta: {
+      requiresAuth: false
     }
   }
   ]
