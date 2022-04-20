@@ -1,6 +1,6 @@
 <template>
   <div class="restaurant-cards">
-    <button class="dislike">Yuck it!</button>
+    <img src="../assets/thumbsDown.png" class="dislike" />
     <div class="card">  
       <h2 class="name">{{ restaurant.name }}</h2>
       <div class="address">
@@ -35,7 +35,7 @@
       <li v-for="c in restaurant.categories" :key="c.id">{{ c }}</li>
       </ul>
     </div>
-    <button @click="addToList()" class="like">Love it!</button>
+    <img src="../assets/thumbsUp.png" @click="addToList()" class="like" />
   </div>
 </template>
 
@@ -73,8 +73,17 @@ export default {
   border: 2px solid red;
   border-radius: 1em;
 }
-button {
+.dislike {
   display: flex;
+  width: 15%;
+  height: auto;
+  justify-content: center;
+  margin: 5%;
+}
+.like {
+  display: flex;
+  width: 15%;
+  height: auto;
   justify-content: center;
   margin: 5%;
 }
@@ -93,7 +102,6 @@ button {
   width: 50%;
   height: 50%;
 }
-
 .name {
   /* display: flex; */
   font-size: 2rem;
@@ -135,7 +143,7 @@ div.hours {
 .categories li {
   list-style: none;
 }
-img {
+.photo {
   display: flex;
   width: 50%;
   height: 50%;
