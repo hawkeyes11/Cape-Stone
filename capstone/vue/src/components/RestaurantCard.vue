@@ -12,7 +12,7 @@
       >
 
       <!-- need to round off number -->
-      <p class="distance">Distance in miles: {{ restaurant.distance }}</p>
+      <!-- <p class="distance">Distance in miles: {{ restaurant.distance }}</p> -->
 
       <p class="hours">{{ restaurant.isClosed ? "Closed" : "Open now" }}</p>
 
@@ -75,7 +75,7 @@ export default {
   align-items: center;
   margin: 1% 10% 2% 10%;
   background-color: #fffddb;
-  border: 2px solid red;
+  border: 3px solid #F21616;
   border-radius: 1em;
   height: 25%;
   width: auto;
@@ -99,7 +99,7 @@ export default {
   flex-direction: column;
   background-color: white;
   border-radius: 20px;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   /* position: relative; */
   /* height: 35rem; */
   justify-content: center;
@@ -130,9 +130,9 @@ div.address {
   display: flex;
   padding-top: 1em;
 }
-div.distance {
+/* div.distance {
   display: flex;
-}
+} */
 div.rating {
   display: flex;
 }
@@ -153,10 +153,11 @@ div.hours {
 }
 .photo {
   display: flex;
+  border-radius: 10px 0px 10px 0px;
+  padding: 1%;
   width: 50%;
   height: 50%;
 }
-
 /*form.form-signin {
   display: flex;
   flex-direction: column;

@@ -84,7 +84,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0% 0% 20% 0%;
+  margin: 5% 0% 20% 0%;
   width: 100%;
 }
 .form-signin {
