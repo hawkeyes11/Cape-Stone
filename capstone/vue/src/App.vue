@@ -19,10 +19,12 @@
       </nav>
       <router-view class="content" />
     </div>
+    <div v-if="!isLoading">
+    <footer class="footer">&copy; Team $Bling</footer>
+    </div>
     <div v-if="isLoading">
       <img class="load-food" src="@/assets/Food_load.gif" />
     </div>
-    <footer class="footer">&copy; Team $Bling</footer>
   </div>
 </template>
 
@@ -59,13 +61,6 @@ body {
     "footer footer";
   column-gap: 5px;
 }
-.content {
-  margin-bottom: 20%;
-  grid-area: content;
-  align-content: center;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-}
 html {
   font-size: 18px;
   font-family: "Yantramanav", sans-serif;
@@ -75,21 +70,26 @@ html {
 header {
   display: flex;
   flex-direction: row;
-  flex-grow: inherit;
+  flex-grow: 1 2 3;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: baseline;
   margin-top: 0vh;
   grid-area: header;
   background-color: #fffddb;
   min-width: 100%;
 }
+h1 {
+  display: flex;
+}
 .logo {
+  position: relative;
   width: 12%;
-  margin: 2%;
+  padding-top: 2%;
 }
 .title {
-  font-size: 4rem;
+  display: flex;
+  font-size: 4em;
   font-family: "Pacifico", cursive;
   margin: -10px;
   /* font-family: 'Permanent Marker', cursive; */
@@ -97,12 +97,22 @@ header {
 .avatar {
   display: flex;
   justify-content: flex-end;
-  width: 75px;
-  height: 75px;
+  width: 5%;
+  height: auto;
 }
 nav {
   display: flex;
   grid-area: nav;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 2% 0% 2% 0%;
+}
+.content {
+  margin-bottom: 20%;
+  grid-area: content;
+  align-content: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 footer {
   display: flex;
@@ -122,11 +132,9 @@ nav.navbar-buttons {
   text-decoration: none;
 } */
 img.load-food {
-  display: flex;
-  /* justify-content: center;
+  position: absolute;
   align-content: center;
-  align-items: baseline; */
-  height: 50%;
+  height: 50%;;
 }
 
 /* 

@@ -40,13 +40,13 @@
       placeholder="Enter group id"
       v-model="groupId"
     /> -->
-   <input
+   <!-- <input
       class="search-input"
       @keyup.enter="getRestaurantsById()"
       type="text"
       placeholder="Enter restaurant id"
       v-model="restaurantId"
-    /> 
+    />  -->
     <!-- <restaurant-card
       :hosting="groupId"
       :restaurant="card"

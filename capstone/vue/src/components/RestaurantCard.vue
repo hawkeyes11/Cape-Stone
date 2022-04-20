@@ -1,6 +1,6 @@
 <template>
   <div class="restaurant-cards">
-    <button class="dislike">Hate it!</button>
+    <img src="../assets/thumbsDown.png" class="dislike" />
     <div class="card">  
       <h2 class="name">{{ restaurant.name }}</h2>
       <div class="address">
@@ -22,18 +22,20 @@
         Amount of Reviews: {{ restaurant.reviewCount }}
       </div>
 
-      <p v-for="t in restaurant.transactions" :key="t.id">{{ t }}</p>
+      <p class="transaction" v-for="t in restaurant.transactions" :key="t.id">{{ t }}</p>
 
-      <img :src="restaurant.url" />
+      <img class="photo" :src="restaurant.url" />
 
-      <a target="_blank" :href="restaurant.websiteUrl">Like to more information</a>
+      <a class="info-link" target="_blank" :href="restaurant.websiteUrl">Like to more information</a>
 
-      <p>{{restaurant.price}}</p>
+      <p class="price">{{restaurant.price}}</p>
 
       <!-- TODO correctly concat strings of categories -->
-      <p v-for="c in restaurant.categories" :key="c.id">{{ c }}</p>
+      <ul class="categories">
+      <li v-for="c in restaurant.categories" :key="c.id">{{ c }}</li>
+      </ul>
     </div>
-    <button @click="addToList()" class="like">Love it!</button>
+    <img src="../assets/thumbsUp.png" @click="addToList()" class="like" />
   </div>
 </template>
 
@@ -64,54 +66,89 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin: 1%;
+  align-content: center;
+  align-items: center;
+  margin: 1em 1em 2em 1em;
+  background-color: #fbf2eb;
+  border: 2px solid red;
+  border-radius: 1em;
+}
+.dislike {
+  display: flex;
+  width: 15%;
+  height: auto;
+  justify-content: center;
+  margin: 5%;
+}
+.like {
+  display: flex;
+  width: 15%;
+  height: auto;
+  justify-content: center;
+  margin: 5%;
 }
 .card {
-  border-radius: 20px;
-  background-color: #fbf2eb;
-  /* position: relative; */
   display: flex;
   flex-direction: column;
+  border-radius: 20px;
+  border: 2px solid red;
+  /* position: relative; */
   /* height: 35rem; */
   justify-content: center;
   align-items: left;
   /* padding-right: 1em; */
   padding: 1%;
   margin: 2%;
-  width: 90%;
+  width: 50%;
+  height: 50%;
 }
-div > h2.name {
+.name {
   /* display: flex; */
   font-size: 2rem;
   }
+
+a {
+  display: flex;
+}
 a.phone {
-  /* display: flex; */
+  display: flex;
   padding-top: 1em;
 }
-a {
-  /* display: flex; */
+a.info-link {
+  display: flex;
 }
 div.address {
-  /* display: flex; */
+  display: flex;
   padding-top: 1em;
 }
 div.distance {
-  /* display: flex; */
+  display: flex;
 }
 div.rating {
-  /* display: flex; */
+  display: flex;
 }
 div.phone {
-  /* display: flex; */
+  display: flex;
 }
 div.hours {
-  /* display: flex; */
+  display: flex;
 }
-img {
+.categories {
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap-reverse;
+}
+.categories li {
+  list-style: none;
+}
+.photo {
   display: flex;
   width: 50%;
-  height: auto;
+  height: 50%;
 }
+
 
 
 /*form.form-signin {

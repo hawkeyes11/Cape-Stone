@@ -120,7 +120,10 @@ export default {
 </script>
 
 <style scoped>
-div.search {
+content {
+
+}
+.search {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -138,7 +141,7 @@ button {
   z-index: 1;
   align-content: center;
   margin: 20px;
-  width: 75%;
+  width: 25%;
   height: 100%;
   text-align: middle;
 }
