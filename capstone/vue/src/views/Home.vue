@@ -123,6 +123,7 @@ button.logout {
   height: 50%;
 }
 button.logout:after {
+  justify-content: flex-end;
   position: absolute;
   content: "";
   width: 0;

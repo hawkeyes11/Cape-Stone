@@ -2,7 +2,7 @@
   <div class="app">
     <div v-if="!isLoading">
       <header class="header-logo-name">
-        <img class="logo" src="@/assets/logo.png" href="/" />
+        <img class="logo" src="@/assets/Logo_BLUE.png" href="/" />
         <h1 class="title">Meet2Eat</h1>
         <img class="avatar" v-if="avatar != ''" :src="avatar"/>
       </header>
@@ -65,7 +65,7 @@ html {
   font-size: 18px;
   font-family: "Yantramanav", sans-serif;
   color: #400c0c;
-  background-color: rgba(98, 205, 217, 0.5);
+  background-color: rgba(98, 205, 217, 0.35);
 }
 header {
   display: flex;

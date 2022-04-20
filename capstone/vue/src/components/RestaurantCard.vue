@@ -74,7 +74,7 @@ export default {
   align-content: center;
   align-items: center;
   margin: 1% 10% 2% 10%;
-  background-color: #fbf2eb;
+  background-color: #fffddb;
   border: 2px solid red;
   border-radius: 1em;
   height: 25%;
@@ -97,6 +97,7 @@ export default {
 .card {
   display: flex;
   flex-direction: column;
+  background-color: white;
   border-radius: 20px;
   border: 2px solid red;
   /* position: relative; */
@@ -105,9 +106,10 @@ export default {
   align-items: left;
   /* padding-right: 1em; */
   padding: 1%;
-  margin: 2% 0% 2% 0%;
+  margin: 2%;
   width: 60%;
   height: 50%;
+  filter: drop-shadow(3px 3px 10px #000000);
 }
 .name {
   /* display: flex; */
