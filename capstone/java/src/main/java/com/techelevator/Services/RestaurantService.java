@@ -104,6 +104,83 @@ public class RestaurantService implements RestaurantServiceAPI {
         return restaurantList;
     }
 
+    private Restaurant mapToRestaurant(ResponseEntity<String> response) {
+        ObjectMapper jsonMapper = new ObjectMapper();
+        JsonNode root = null;
+        Restaurant restaurant = null;
+        try {
+            root = jsonMapper.readTree(response.getBody());
+
+            String restaurantId = root.get("id").asText();
+
+            String name = root.get("name").asText();
+
+            int reviewCount = root.get("review_count").asInt();
+
+            double rating = root.get("rating").asDouble();
+
+            Iterator<JsonNode> category = root.get("categories").elements();
+            List<String> categories = new ArrayList<>();
+            while (category.hasNext()) {
+                categories.add(category.next().get("title").asText());
+            }
+
+            JsonNode location = root.get("location");
+            Iterator<JsonNode> locationEl = location.get("display_address").elements();
+            List<String> addressList = new ArrayList<>();
+            while(locationEl.hasNext()) {
+                addressList.add(locationEl.next().asText());
+            }
+
+            String phoneNumber = root.get("display_phone").asText();
+
+            double distance = 0.0;
+
+            Iterator<JsonNode> transaction = root.get("transactions").elements();
+            List<String> transactions = new ArrayList<>();
+            while(transaction.hasNext()) {
+                transactions.add(transaction.next().asText());
+            }
+
+            boolean isClosing = root.get("is_closed").asBoolean();
+
+            String url = root.get("image_url").asText();
+
+            String websiteUrl = root.get("url").asText();
+
+            String price = null;
+            if(root.has("price")) {
+                price = root.get("price").asText();
+            }
+            restaurant = new Restaurant(restaurantId, name, reviewCount, rating, categories, addressList, phoneNumber, distance, transactions, isClosing, url, websiteUrl, price);
+
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+
+        return restaurant;
+    }
+
+
+    public Restaurant getRestaurantByRestaurantId(String id) {
+        HttpHeaders header = new HttpHeaders();
+        header.setBearerAuth("cvoslUcg3V5t7U61q0w44m0ozvmJO7T9y06V1LNR5V6vQssRuUF3xuoqePMjP-caC1zSU6_5xADKT1yGnkAvqtZKOlubGaxC0ZqXqJtIkn4BXGfcb8NI256HUp5QYnYx");
+        HttpEntity entity = new HttpEntity(header);
+        Restaurant restaurant = null;
+        try {
+            ResponseEntity<String> response = restTemplate.exchange("https://api.yelp.com/v3/businesses/" + id, HttpMethod.GET, entity, String.class);
+            restaurant = mapToRestaurant(response);
+
+        } catch (RestClientResponseException | ResourceAccessException e) {
+            System.out.println(e);
+        }
+
+        return restaurant;
+    }
+
+
+
+
     private double convertToMiles(double meters) {
         DecimalFormat df = new DecimalFormat("0.00");
         double conversion = (meters / 1609.34);

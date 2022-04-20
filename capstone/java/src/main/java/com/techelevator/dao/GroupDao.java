@@ -17,4 +17,6 @@ public interface GroupDao {
     void addCategory(String username, String category);
 
     List<String> getUserCategories(String username);
+
+    public String getLocationByGroupId(int id);
 }
