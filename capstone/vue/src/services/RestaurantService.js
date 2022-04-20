@@ -1,28 +1,12 @@
 import axios from 'axios';
 
-const yelpToken = 'cvoslUcg3V5t7U61q0w44m0ozvmJO7T9y06V1LNR5V6vQssRuUF3xuoqePMjP-caC1zSU6_5xADKT1yGnkAvqtZKOlubGaxC0ZqXqJtIkn4BXGfcb8NI256HUp5QYnYx'
 
 const http = axios.create({
   baseURL: "http://localhost:8080/"
 });
 
-const yelp = axios.create({
-  baseURL: "https://api.yelp.com/v3/businesses/",
-});
-
-
 
 export default {
-
-  getRestaurantsById(restaurantId) {
-    axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-    const config = {
-      headers: { 'Authorization': 'Bearer ' + yelpToken }
-    }
-    return yelp.get(restaurantId, config);
-
-  },
-
 
   getRestaurants(zip) {
     return http.get('restaurants?location=' + zip);
@@ -56,6 +40,10 @@ export default {
   },
   getUserCategories(username) {
     return http.get(username + "/categories")
+  },
+
+  getGroupFinalist(groupId) {
+    return http.get("finalist/" + groupId)
   }
 
 }
