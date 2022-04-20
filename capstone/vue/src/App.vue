@@ -73,20 +73,22 @@ html {
 }
 header {
   display: flex;
+  top: 0;
   flex-direction: row;
-  flex-grow: 1 2 3;
   flex-wrap: wrap;
-  justify-content: space-around;
+  padding: 0% 2% 0% 2%;
+  justify-content: space-between;
   align-items: baseline;
   margin-top: 0vh;
   grid-area: header;
   background-color: #fffddb;
-  min-width: 100%;
+  max-width: 100%;
 }
 h1 {
   display: flex;
 }
 .logo {
+  display: flex;
   position: relative;
   width: 12%;
   padding-top: 2%;
@@ -100,7 +102,6 @@ h1 {
 }
 .avatar {
   display: flex;
-  justify-content: flex-end;
   width: 5%;
   height: auto;
 }
@@ -127,7 +128,7 @@ footer {
   background-color: #fffddb;
   padding: 2%;
   height: auto;
-  min-width: 100%;
+  max-width: 100%;
 }
 nav.navbar-buttons {
   display: flex;

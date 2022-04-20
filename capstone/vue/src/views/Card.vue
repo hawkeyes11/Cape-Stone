@@ -10,13 +10,18 @@
             </div>
              -->
 
-    <div v-if="userRestaurantList.length > 0">
-      <div class="smallCard" v-for="rest in userRestaurantList" :key="rest.id">
-        <h2>{{rest.name}}</h2>
-          <ul class="categories">
-            <li v-for="c in rest.categories" :key="c.id">{{ c }}</li>
-          </ul>
-        <a class="info-link" target="_blank" :href="rest.websiteUrl">Like to more information</a>
+    <div class="favorites" v-if="userRestaurantList.length > 0">
+      <div>
+        <span>Favorited Restaurants</span>
+      </div>
+      <div class="small-card" v-for="rest in userRestaurantList" :key="rest.id">
+        <h2>{{ rest.name }}</h2>
+        <ul class="categories">
+          <li v-for="c in rest.categories" :key="c.id">{{ c }}</li>
+        </ul>
+        <a class="info-link" target="_blank" :href="rest.websiteUrl"
+          >More information</a
+        >
       </div>
     </div>
     <!-- <div class="search">
@@ -67,8 +72,6 @@
     />
     <!-- <router-link @click.native="$scrollToTop"> -->
     <!-- <button @click="scrollToTop()" class="custom-btn top" title="Go to top">Top</button> -->
-
-
   </div>
 </template>
 
@@ -105,8 +108,8 @@ export default {
         });
     },
     scrollToTop() {
-    window.scrollTo(0,0);
-  }
+      window.scrollTo(0, 0);
+    },
   },
   data() {
     return {
@@ -128,9 +131,6 @@ export default {
 </script>
 
 <style scoped>
-content {
-
-}
 .search {
   display: flex;
   flex-direction: column;
@@ -211,10 +211,17 @@ button.top {
   right: 0;
   margin-right: 15px;
 }
-.smallCard{
+.small-card {
   display: inline-block;
+  flex-direction: row;
+  justify-content: center;
+  align-content: space-between;
+  align-items: center;
   margin: 2%;
-   background-color: white;
+  padding: 1%;
+  background-color: white;
+  border-radius: 5px;
+  width: 15%;
+  height: 10%;
 }
-
 </style>

@@ -4,8 +4,17 @@
     <div class="card">
       <h2 class="name">{{ restaurant.name }}</h2>
       <div class="address">
-        <a target="_blank" :href="'https://www.google.com/maps/place/' +  restaurant.display_address[0] + '+' + restaurant.display_address[1]">Address: {{ restaurant.display_address[0] }}
-        {{ restaurant.display_address[1] }}</a>
+        <a
+          target="_blank"
+          :href="
+            'https://www.google.com/maps/place/' +
+              restaurant.display_address[0] +
+              '+' +
+              restaurant.display_address[1]
+          "
+          >Address: {{ restaurant.display_address[0] }}
+          {{ restaurant.display_address[1] }}</a
+        >
       </div>
       <a :href="'tel:' + restaurant.display_phone" class="phone"
         >Call to Order: {{ restaurant.display_phone }}</a
@@ -62,11 +71,11 @@ export default {
         console.log(this.$store.state.userRestaurantList);
       }
     },
-    dislike(){
-      if (this.hosting){
-      alert("Restaurant Disliked")
+    dislike() {
+      if (this.hosting) {
+        alert("Restaurant Disliked");
       }
-    }
+    },
   },
 };
 </script>
@@ -80,7 +89,7 @@ export default {
   align-items: center;
   margin: 1% 10% 2% 10%;
   background-color: #fffddb;
-  border: 3px solid #F21616;
+  border: 3px solid #f2b705;
   border-radius: 1em;
   height: 25%;
   width: auto;
@@ -91,6 +100,7 @@ export default {
   height: auto;
   justify-content: center;
   margin: 2%;
+  filter: drop-shadow(1px 1px 10px #f21616);
 }
 .like {
   display: flex;
@@ -98,6 +108,7 @@ export default {
   height: auto;
   justify-content: center;
   margin: 2%;
+  filter: drop-shadow(3px 3px 10px #0aa605);
 }
 .card {
   display: flex;
