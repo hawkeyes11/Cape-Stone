@@ -38,6 +38,7 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+      state.userRestaurantList = [];
     },
     ADD_TO_USER_LIST(state, restaurantObj) {
       state.userRestaurantList.push(restaurantObj);
