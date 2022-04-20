@@ -11,10 +11,13 @@
              -->
 
     <div v-if="userRestaurantList.length > 0">
-      {{
-        "List of user liked restaurants(Goes away on refresh): " +
-          userRestaurantList
-      }}
+      <div v-for="rest in userRestaurantList" :key="rest.id">
+        <h2>{{rest.name}}</h2>
+          <ul class="categories">
+            <li v-for="c in rest.categories" :key="c.id">{{ c }}</li>
+          </ul>
+        <a class="info-link" target="_blank" :href="rest.websiteUrl">Like to more information</a>
+      </div>
     </div>
     <!-- <div class="search">
       <button @click="isHost = !isHost" class="custom-btn host">
@@ -63,7 +66,8 @@
       :key="card.id"
     />
 
-    <!-- <button class="top">BACK TO TOP</button> -->
+    <a href=".app"><button @click="scrollToTop()" class="custom-btn top" title="Go to top">Top</button></a>
+
   </div>
 </template>
 
@@ -99,6 +103,9 @@ export default {
           });
         });
     },
+    scrollToTop() {
+      document.documentElement.scrollTop = 0; 
+    }
   },
   data() {
     return {

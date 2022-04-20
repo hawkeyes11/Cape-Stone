@@ -32,29 +32,6 @@
       </button>
       </router-link>
     </div>
-<!-- 
-  <input
-      class="search-input"
-      @keyup.enter="getGroupRestaurants()"
-      type="text"
-      placeholder="Enter group id"
-      v-model="groupId"
-    /> -->
-   <!-- <input
-      class="search-input"
-      @keyup.enter="getRestaurantsById()"
-      type="text"
-      placeholder="Enter restaurant id"
-      v-model="restaurantId"
-    />  -->
-    <!-- <restaurant-card
-      :hosting="groupId"
-      :restaurant="card"
-      v-for="card in response"
-      :key="card.id"
-    /> -->
-
-    <!-- <button class="top">BACK TO TOP</button> -->
   </div>
 </template>
 
@@ -66,30 +43,23 @@ export default {
     // RestaurantCard,
   },
   methods: {
-    getGroupRestaurants() {
-      restaurantService.getGroupRestaurants(this.groupId).then((r) => {
-        this.groupThings = r.data;
-        console.log(r.data);
-      });
-    },
-    getRestaurantsById() {
-      restaurantService.getRestaurantsById(this.restaurantId).then((r) => {
-        // this.restaurantList = r.data;
-        console.log(r.data);
-      });
-    },
-  getRestaurants() {
-    restaurantService.getRestaurants(this.zip).then((r) => {
-      this.response = r.data;
-      console.log(r.data);
-    });
-  },
+  //   getGroupRestaurants() {
+  //     restaurantService.getGroupRestaurants(this.groupId).then((r) => {
+  //       this.groupThings = r.data;
+  //       console.log(r.data);
+  //     });
+  //   },
+  //   },
+  // getRestaurants() {
+  //   restaurantService.getRestaurants(this.zip).then((r) => {
+  //     this.response = r.data;
+  //     console.log(r.data);
+  //   });
+
   hosting() {
     restaurantService.createGroup(this.groupZip, this.expiration).then((r) => {
       this.url = r.data;
       this.groupId = r.data.substring(r.data.length - 6);
-      this.$store.commit("SET_GROUP_ID", this.groupId);
-      console.log(this.groupId);
       restaurantService.getRestaurants(this.groupZip).then((r) => {
         this.response = r.data;
         console.log(r.data);

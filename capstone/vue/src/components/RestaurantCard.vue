@@ -53,7 +53,7 @@ export default {
           alert("Restaurant Added");
         })
       } else {
-        this.$store.commit("ADD_TO_USER_LIST", this.restaurant.restaurantId);
+        this.$store.commit("ADD_TO_USER_LIST", this.restaurant);
         console.log(this.$store.state.userRestaurantList);
       }
     }
