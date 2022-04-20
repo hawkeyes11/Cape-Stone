@@ -1,16 +1,16 @@
 <template>
   <div>
-      <restaurant-card v-for="rest in restList" :key="rest.id" :restaurant="rest"/>
+      <group-card v-for="rest in restList" :key="rest.id" :restaurant="rest"/>
   </div>
 </template>
 
 <script>
 import restaurantService from "../services/RestaurantService"
-import RestaurantCard from "../components/RestaurantCard.vue"
+import GroupCard from "../components/GroupCard.vue"
 
 export default {
     components: {
-        RestaurantCard
+        GroupCard
     },
     data() {
         return {

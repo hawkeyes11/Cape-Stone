@@ -11,7 +11,7 @@
              -->
 
     <div v-if="userRestaurantList.length > 0">
-      <div v-for="rest in userRestaurantList" :key="rest.id">
+      <div class="smallCard" v-for="rest in userRestaurantList" :key="rest.id">
         <h2>{{rest.name}}</h2>
           <ul class="categories">
             <li v-for="c in rest.categories" :key="c.id">{{ c }}</li>
@@ -65,8 +65,9 @@
       v-for="card in response"
       :key="card.id"
     />
+    <!-- <router-link @click.native="$scrollToTop"> -->
+    <!-- <button @click="scrollToTop()" class="custom-btn top" title="Go to top">Top</button> -->
 
-    <a href=".app"><button @click="scrollToTop()" class="custom-btn top" title="Go to top">Top</button></a>
 
   </div>
 </template>
@@ -104,8 +105,8 @@ export default {
         });
     },
     scrollToTop() {
-      document.documentElement.scrollTop = 0; 
-    }
+    window.scrollTo(0,0);
+  }
   },
   data() {
     return {
@@ -210,4 +211,10 @@ button.top {
   right: 0;
   margin-right: 15px;
 }
+.smallCard{
+  display: inline-block;
+  margin: 2%;
+   background-color: white;
+}
+
 </style>
