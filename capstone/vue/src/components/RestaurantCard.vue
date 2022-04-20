@@ -1,7 +1,7 @@
 <template>
   <div class="restaurant-cards">
     <img src="../assets/thumbsDown.png" class="dislike" />
-    <div class="card">  
+    <div class="card">
       <h2 class="name">{{ restaurant.name }}</h2>
       <div class="address">
         Address: {{ restaurant.display_address[0] }}
@@ -22,17 +22,21 @@
         Amount of Reviews: {{ restaurant.reviewCount }}
       </div>
 
-      <p class="transaction" v-for="t in restaurant.transactions" :key="t.id">{{ t }}</p>
+      <p class="transaction" v-for="t in restaurant.transactions" :key="t.id">
+        {{ t }}
+      </p>
 
       <img class="photo" :src="restaurant.url" />
 
-      <a class="info-link" target="_blank" :href="restaurant.websiteUrl">Like to more information</a>
+      <a class="info-link" target="_blank" :href="restaurant.websiteUrl"
+        >Like to more information</a
+      >
 
-      <p class="price">{{restaurant.price}}</p>
+      <p class="price">{{ restaurant.price }}</p>
 
       <!-- TODO correctly concat strings of categories -->
       <ul class="categories">
-      <li v-for="c in restaurant.categories" :key="c.id">{{ c }}</li>
+        <li v-for="c in restaurant.categories" :key="c.id">{{ c }}</li>
       </ul>
     </div>
     <img src="../assets/thumbsUp.png" @click="addToList()" class="like" />
@@ -40,24 +44,25 @@
 </template>
 
 <script>
-import restaurantService from '../services/RestaurantService.js'
+import restaurantService from "../services/RestaurantService.js";
 
 export default {
   name: "restaurant-card",
   props: ["restaurant", "hosting"],
   methods: {
     addToList() {
-      if(this.hosting) {
-        restaurantService.addRestaurantToGroupList(this.hosting, this.restaurant.restaurantId)
-        .then(() => {
-          alert("Restaurant Added");
-        })
+      if (this.hosting) {
+        restaurantService
+          .addRestaurantToGroupList(this.hosting, this.restaurant.restaurantId)
+          .then(() => {
+            alert("Restaurant Added");
+          });
       } else {
         this.$store.commit("ADD_TO_USER_LIST", this.restaurant);
         console.log(this.$store.state.userRestaurantList);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -68,28 +73,31 @@ export default {
   justify-content: space-around;
   align-content: center;
   align-items: center;
-  margin: 1em 1em 2em 1em;
-  background-color: #fbf2eb;
+  margin: 1% 10% 2% 10%;
+  background-color: #fffddb;
   border: 2px solid red;
   border-radius: 1em;
+  height: 25%;
+  width: auto;
 }
 .dislike {
   display: flex;
   width: 15%;
   height: auto;
   justify-content: center;
-  margin: 5%;
+  margin: 2%;
 }
 .like {
   display: flex;
   width: 15%;
   height: auto;
   justify-content: center;
-  margin: 5%;
+  margin: 2%;
 }
 .card {
   display: flex;
   flex-direction: column;
+  background-color: white;
   border-radius: 20px;
   border: 2px solid red;
   /* position: relative; */
@@ -99,13 +107,14 @@ export default {
   /* padding-right: 1em; */
   padding: 1%;
   margin: 2%;
-  width: 50%;
+  width: 60%;
   height: 50%;
+  filter: drop-shadow(3px 3px 10px #000000);
 }
 .name {
   /* display: flex; */
   font-size: 2rem;
-  }
+}
 
 a {
   display: flex;
@@ -134,7 +143,6 @@ div.hours {
   display: flex;
 }
 .categories {
-
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -148,8 +156,6 @@ div.hours {
   width: 50%;
   height: 50%;
 }
-
-
 
 /*form.form-signin {
   display: flex;
