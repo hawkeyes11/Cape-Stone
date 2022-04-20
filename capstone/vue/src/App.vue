@@ -6,7 +6,7 @@
         <h1 class="title">Meet2Eat</h1>
         <img class="avatar" v-if="$store.state.user.username != undefined" :src="avatarImg"/>
       </header>
-      <nav class="navbar">
+      <nav v-if="$store.state.user.username != undefined" class="navbar">
         <router-link v-bind:to="{ name: 'home' }">Home</router-link
         >&nbsp;|&nbsp;
         <router-link v-bind:to="{ name: 'card' }">Search</router-link
