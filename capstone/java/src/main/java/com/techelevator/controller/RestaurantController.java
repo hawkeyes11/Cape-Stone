@@ -46,7 +46,6 @@ public class RestaurantController {
 
     @PostMapping("/user/categories")
     public void addCategory(@RequestBody Category category, Principal principal) {
-        System.out.println(category.getCategory());
         jdbcGroupDao.addCategory(principal.getName(), category.getCategory());
     }
 

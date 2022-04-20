@@ -22,7 +22,7 @@
       <button class="custom-btn" v-if="isHost" @click="hosting">
         <span>Send List to Friends</span>
       </button>
-      <!-- <router-link to='/meet/{{groupId}}'> -->
+      <router-link v-bind:to="{ name: 'join', params: { groupId: groupId} } ">
       <button class="custom-btn" v-if="url">
       <p v-if="url">
         {{
@@ -30,23 +30,23 @@
         }}
       </p>
       </button>
-      <!-- </router-link> -->
+      </router-link>
     </div>
-
-    <!-- <input
+<!-- 
+  <input
       class="search-input"
       @keyup.enter="getGroupRestaurants()"
       type="text"
       placeholder="Enter group id"
       v-model="groupId"
-    />
+    /> -->
    <input
       class="search-input"
-      @keyup.enter="getRestaurants()"
+      @keyup.enter="getRestaurantsById()"
       type="text"
       placeholder="Enter restaurant id"
       v-model="restaurantId"
-    /> -->
+    /> 
     <!-- <restaurant-card
       :hosting="groupId"
       :restaurant="card"

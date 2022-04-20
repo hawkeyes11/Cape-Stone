@@ -15,6 +15,7 @@ const yelp = axios.create({
 export default {
 
   getRestaurantsById(restaurantId) {
+    axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
     const config = {
       headers: { 'Authorization': 'Bearer ' + yelpToken }
     }
