@@ -3,7 +3,7 @@
     <restaurant-card
       :hosting="groupId"
       :restaurant="card"
-      v-for="card in response"
+      v-for="card in restaurantList"
       :key="card.id"
     />
   </div>
@@ -16,17 +16,16 @@ export default {
   components: {
     RestaurantCard,
   },
-  methods: {
-    getRestaurants() {
-      restaurantService.getRestaurants(this.zip).then((r) => {
-        this.response = r.data;
-        console.log(r.data);
-      });
-    },
+  created() {
+    restaurantService.getGroupRestaurants(parseInt(this.$route.params.groupId))
+    .then((r) => {
+      this.restaurantList = r.data;
+    })
   },
   data(){
       return {
-          groupId: "",
+          restaurantList: [],
+          groupId: this.$route.params.groupId,
           zip: "",
           
       }

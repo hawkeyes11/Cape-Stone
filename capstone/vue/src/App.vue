@@ -4,7 +4,7 @@
       <header class="header-logo-name">
         <img class="logo" src="@/assets/logo.png" href="/" />
         <h1 class="title">Meet2Eat</h1>
-        <img class="avatar" v-if="avatar != ''" :src="avatar"/>
+        <img class="avatar" v-if="$store.state.user.username != undefined" :src="avatarImg"/>
       </header>
       <nav class="navbar">
         <router-link v-bind:to="{ name: 'home' }">Home</router-link
@@ -40,13 +40,17 @@ export default {
   data() {
     return {
       isLoading: true,
-      avatar: ""
     };
   },
   mounted() {
     this.loading();
-    this.avatar = "https://avatars.dicebear.com/api/pixel-art-neutral/" + this.$store.state.user.username + ".svg"
   },
+  computed: {
+    avatarImg() {
+      return "https://avatars.dicebear.com/api/pixel-art-neutral/" + this.$store.state.user.username + ".svg"
+    }
+    
+  }
 };
 </script>
 
