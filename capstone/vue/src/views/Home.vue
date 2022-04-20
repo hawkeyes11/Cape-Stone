@@ -5,20 +5,16 @@
     </div>
     <div class="options">
       <h3>Hungry?</h3>
-      <router-link to='/card'>
-      <button class="custom-btn find-restaurant">
+      <button @click="$router.push('/card')" class="custom-btn find-restaurant">
         <span>Find Food for You</span>
         <!-- redirects to Restaurant Cards -->
       </button>
-      </router-link>
       <!-- Figure out the social networking/matchmaking elements -->
-      <router-link to='/meet'>
-      <button class="custom-btn invite">
+      <button @click="$router.push('/meet')" class="custom-btn invite">
         <span>Find Food for You and Your Friends </span>
         <!-- redirects to Friends List ?? -->
       </button>
-      </router-link>
-      <button class="custom-btn logout">
+      <button @click="$router.push('/')" class="custom-btn logout">
         <span>Logout</span>
         <!-- redirects back to login page -->
       </button>
@@ -124,6 +120,7 @@ button:active {
 button.logout {
   background-color: #f21616;
   width: 25%;
+  height: 50%;
 }
 button.logout:after {
   position: absolute;
