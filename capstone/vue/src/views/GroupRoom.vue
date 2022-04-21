@@ -2,6 +2,7 @@
   <div class="content">
     <h2>{{'Your group id is: ' + groupId}}</h2>
     <button  @click="$router.push({ name: 'groupLisp', params: {groupId}})">Go to group finalist</button>
+    
     <restaurant-card
       :hosting="groupId"
       :restaurant="card"
@@ -24,6 +25,7 @@ export default {
       this.restaurantList = r.data;
     })
   },
+  
   data(){
       return {
           restaurantList: [],

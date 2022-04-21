@@ -2,7 +2,7 @@
   <div class="content">
     <div class="search">
       <button @click="isHost = !isHost" class="custom-btn host">
-        <span>Invite Friends</span>
+        <span>Click here to start!</span>
       </button>
       <input
         class="search-input"
@@ -20,7 +20,7 @@
         v-model="groupZip"
       />
       <button class="custom-btn" v-if="isHost" @click="hosting">
-        <span>Send List to Friends</span>
+        <span>Generate your custom invite link</span>
       </button>
       <router-link v-bind:to="{ name: 'join', params: { groupId: groupId} } ">
       <button class="custom-btn" v-if="url">

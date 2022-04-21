@@ -27,7 +27,7 @@
 
       <!-- need to display stars not number -->
       <div class="rating">
-        Average Rating: {{ restaurant.rating }} <br />
+        Average Rating: {{ restaurant.rating }} stars <br />
         Amount of Reviews: {{ restaurant.reviewCount }}
       </div>
 
@@ -41,7 +41,7 @@
         >More information</a
       >
 
-      <p class="price">{{ restaurant.price }}</p>
+      <p class="price">Price: {{ restaurant.price }}</p>
 
       <!-- TODO correctly concat strings of categories -->
       <ul class="categories">
