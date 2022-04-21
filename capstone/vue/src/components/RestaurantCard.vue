@@ -38,7 +38,7 @@
       <img class="photo" :src="restaurant.url" />
 
       <a class="info-link" target="_blank" :href="restaurant.websiteUrl"
-        >Link to more information</a
+        >More information</a
       >
 
       <p class="price">{{ restaurant.price }}</p>
@@ -108,7 +108,7 @@ export default {
   height: auto;
   justify-content: center;
   margin: 2%;
-  filter: drop-shadow(3px 3px 10px #0aa605);
+  filter: drop-shadow(1px 1px 10px #0aa605);
 }
 .card {
   display: flex;
