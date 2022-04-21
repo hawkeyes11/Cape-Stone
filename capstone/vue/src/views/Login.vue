@@ -165,11 +165,13 @@ button span {
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
+    line-height: 42px;
+  border: none;
+  background: rgb(255,27,0);
+background: linear-gradient(0deg, rgba(255,27,0,1) 0%, rgba(251,75,2,1) 100%);
 }
-button:after {
+/* button:after {
   position: absolute;
   content: "";
   width: 0;
@@ -192,7 +194,7 @@ button:hover:after {
 }
 button:active {
   top: 2px;
-}
+} */
 
 /* @media (min-width: 1024px) {
   #body-grid {
@@ -224,7 +226,7 @@ button:active {
       "footer";
   } */
 /* 
-  .btn-5 {
+  .custom-btn {
   width: 130px;
   height: 40px;
   line-height: 42px;
@@ -232,14 +234,14 @@ button:active {
   border: none;
   background: rgb(255,27,0);
 background: linear-gradient(0deg, rgba(255,27,0,1) 0%, rgba(251,75,2,1) 100%);
-}
-.btn-5:hover {
+} */
+button:hover {
   color: #f0094a;
   background: transparent;
    box-shadow:none;
 }
-.btn-5:before,
-.btn-5:after{
+button:before,
+button:after{
   content:'';
   position:absolute;
   top:0;
@@ -253,16 +255,16 @@ background: linear-gradient(0deg, rgba(255,27,0,1) 0%, rgba(251,75,2,1) 100%);
    4px 4px 5px 0px #0002;
   transition:400ms ease all;
 }
-.btn-5:after{
+button:after{
   right:inherit;
   top:inherit;
   left:0;
   bottom:0;
 }
-.btn-5:hover:before,
-.btn-5:hover:after{
+button:hover:before,
+button:hover:after{
   width:100%;
   transition:800ms ease all;
-} */
+}
 
 </style>
