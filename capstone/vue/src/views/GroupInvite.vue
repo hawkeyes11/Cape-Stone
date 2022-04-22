@@ -5,6 +5,7 @@
         <span>Click here to start!</span>
       </button>
       <input
+      :min="today"
         class="search-input"
         type="date"
         v-if="isHost"
@@ -81,7 +82,7 @@ export default {
       url: "",
       expiration: "",
       isLoading: true,
-
+      today: new Date().toISOString().slice(0,10),
       groupRestaurantList: this.$store.state.groupRestaurantList,
     };
   },
