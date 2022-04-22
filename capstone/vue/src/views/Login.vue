@@ -150,11 +150,12 @@ button span {
   display: flex;
   justify-content: center;
   font-family: "Yantramanav", sans-serif;
-  font-size: 1.25em;
+  font-size: 1.5em;
+  font-weight: 400;
+
 }
 .custom-btn {
   height: 75px;
-  background-color: #f25c05;
   color: #000;
   border-radius: 5px;
   padding: 10px 25px 10px 25px;
@@ -166,105 +167,37 @@ button span {
   position: relative;
   display: inline-block;
   outline: none;
-    line-height: 42px;
-  border: none;
-  background: rgb(255,27,0);
-background: linear-gradient(0deg, rgba(255,27,0,1) 0%, rgba(251,75,2,1) 100%);
-}
-/* button:after {
-  position: absolute;
-  content: "";
-  width: 0;
-  height: 100%;
-  top: 0;
-  right: 0;
-  z-index: -1;
-  background-image: linear-gradient(to left, #f25c05, #f2b705);
-  border-radius: 5px;
-  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-button:hover {
-  color: #fff;
-}
-button:hover:after {
-  left: 0;
-  width: 100%;
-}
-button:active {
-  top: 2px;
-} */
-
-/* @media (min-width: 1024px) {
-  #body-grid {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-areas:
-      "header header header nav"
-      "main main main main"
-      "footer footer footer footer";
-    column-gap: 15px;
-  }
-}
-@media (max-width: 1024px) {
-  #body-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas:
-      "header header header nav"
-      "main main main main"
-      "footer footer footer footer";
-    column-gap: 35px;
-  }
-}
-
-@media (max-width: 450px) {
-#main-grid {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "header"
-      "main"
-      "footer";
-  } */
-/* 
-  .custom-btn {
-  width: 130px;
-  height: 40px;
   line-height: 42px;
-  padding: 0;
   border: none;
-  background: rgb(255,27,0);
-background: linear-gradient(0deg, rgba(255,27,0,1) 0%, rgba(251,75,2,1) 100%);
-} */
+  background: linear-gradient(0deg, #62cdd9, #60f0d6);
+}
 button:hover {
-  color: #f0094a;
+  color: #62cdd9;
   background: transparent;
-   box-shadow:none;
+  box-shadow: none;
 }
 button:before,
-button:after{
-  content:'';
-  position:absolute;
-  top:0;
-  right:0;
-  height:2px;
-  width:0;
-  background: #f0094a;
-  box-shadow:
-   -1px -1px 5px 0px #fff,
-   7px 7px 20px 0px #0003,
-   4px 4px 5px 0px #0002;
-  transition:400ms ease all;
+button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #5c8fe6;
+  box-shadow: -1px -1px 5px 0px #fff, 7px 7px 20px 0px #0003,
+    4px 4px 5px 0px #0002;
+  transition: 400ms ease all;
 }
-button:after{
-  right:inherit;
-  top:inherit;
-  left:0;
-  bottom:0;
+button:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
 }
 button:hover:before,
-button:hover:after{
-  width:100%;
-  transition:800ms ease all;
+button:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
 }
-
 </style>

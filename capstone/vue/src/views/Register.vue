@@ -194,11 +194,11 @@ button span {
   display: flex;
   justify-content: center;
   font-family: "Yantramanav", sans-serif;
-  font-size: 1.25em;
+  font-size: 1.5em;
+  font-weight: 400;
 }
 .custom-btn {
   height: 75px;
-  background-color: #f25c05;
   color: #000;
   border-radius: 5px;
   padding: 10px 25px 10px 25px;
@@ -209,33 +209,38 @@ button span {
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
+  line-height: 42px;
+  border: none;
+  background: linear-gradient(0deg, #62cdd9, #60f0d6);
 }
+button:hover {
+  color: #62cdd9;
+  background: transparent;
+  box-shadow: none;
+}
+button:before,
 button:after {
-  position: absolute;
   content: "";
-  width: 0;
-  height: 100%;
+  position: absolute;
   top: 0;
   right: 0;
-  z-index: -1;
-  background-image: linear-gradient(to left, #f25c05, #f2b705);
-  border-radius: 5px;
-  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  height: 2px;
+  width: 0;
+  background: #5c8fe6;
+  box-shadow: -1px -1px 5px 0px #fff, 7px 7px 20px 0px #0003,
+    4px 4px 5px 0px #0002;
+  transition: 400ms ease all;
 }
-
-button:hover {
-  color: #fff;
-}
-button:hover:after {
+button:after {
+  right: inherit;
+  top: inherit;
   left: 0;
-  width: 100%;
+  bottom: 0;
 }
-button:active {
-  top: 2px;
+button:hover:before,
+button:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
 }
 </style>
