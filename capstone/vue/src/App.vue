@@ -139,7 +139,7 @@ nav.navbar-buttons {
 img.load-food {
   position: absolute;
   align-content: center;
-  height: 50%;;
+  height: 50%;
 }
 
 /* 

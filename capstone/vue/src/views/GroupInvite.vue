@@ -6,7 +6,7 @@
       </button>
       <input
       :min="today"
-        class="search-input"
+        class="date"
         type="date"
         v-if="isHost"
         placeholder="Expiration Date"
@@ -20,11 +20,11 @@
         placeholder="Enter a city or zip code"
         v-model="groupZip"
       />
-      <button class="custom-btn" v-if="isHost" @click="hosting">
+      <button class="custom-btn invite" v-if="isHost" @click="hosting">
         <span>Generate your custom invite link</span>
       </button>
       <router-link v-bind:to="{ name: 'join', params: { groupId: groupId} } ">
-      <button class="custom-btn" v-if="url">
+      <button class="custom-btn link" v-if="url">
       <p v-if="url">
         {{
           url
@@ -90,17 +90,18 @@ export default {
 </script>
 
 <style scoped>
-/* .content {
+.content {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: left;
   margin: 0% 0% 20% 0%;
   width: 100%;
-} */
+}
 div.search {
   display: flex;
+  /* background-color: #fffddb; */
   flex-direction: column;
   width: 50%;
   justify-items: center;
@@ -110,6 +111,9 @@ input {
   border-radius: 5px 0px 5px 0px;
   padding: 10px;
   font-size: 1em;
+  margin: 0% 2% 1% 2%;
+  width: 50%;
+  border: none;
 }
 button {
   display: flex;
@@ -117,7 +121,7 @@ button {
   z-index: 1;
   align-content: center;
   margin: 20px;
-  width: 75%;
+  width: 25%;
   height: 100%;
   text-align: middle;
 }
@@ -125,13 +129,11 @@ button span {
   display: flex;
   justify-content: center;
   font-family: "Yantramanav", sans-serif;
-  font-size: 1.25em;
+  font-size: 1.5em;
+  font-weight: 400;
 }
 .custom-btn {
-  display: flex;
-  flex-shrink: 1;
   height: 75px;
-  background-color: #f25c05;
   color: #000;
   border-radius: 5px;
   padding: 10px 25px 10px 25px;
@@ -142,40 +144,163 @@ button span {
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
+  line-height: 42px;
+  border: none;
+  background: linear-gradient(0deg, #62cdd9, #60f0d6);
 }
+button:hover {
+  color: #62cdd9;
+  background: transparent;
+  box-shadow: none;
+}
+button:before,
 button:after {
-  position: absolute;
   content: "";
-  width: 0;
-  height: 100%;
+  position: absolute;
   top: 0;
   right: 0;
-  z-index: -1;
-  background-image: linear-gradient(to left, #f25c05, #f2b705);
-  border-radius: 5px;
-  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  height: 2px;
+  width: 0;
+  background: #5c8fe6;
+  box-shadow: -1px -1px 5px 0px #fff, 7px 7px 20px 0px #0003,
+    4px 4px 5px 0px #0002;
+  transition: 400ms ease all;
 }
-
-button:hover {
-  color: #fff;
-}
-button:hover:after {
+button:after {
+  right: inherit;
+  top: inherit;
   left: 0;
-  width: 100%;
-}
-button:active {
-  top: 2px;
-}
-button.top {
-  position: fixed;
-  justify-content: baseline;
   bottom: 0;
+}
+button:hover:before,
+button:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
+}
+button.invite {
+  display: flex;
+  border: none;
+  z-index: 1;
+  align-content: center;
+  margin: 20px;
+  width: 50%;
+  height: 100%;
+  text-align: middle;
+}
+button.invite span {
+  display: flex;
+  justify-content: center;
+  font-family: "Yantramanav", sans-serif;
+  font-size: 1.5em;
+  font-weight: 400;
+}
+.custom-btn .invite {
+  color: #000;
+  border-radius: 5px;
+  padding: 10px 25px 10px 25px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  /* background: transparent; */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  line-height: 42px;
+  border: none;
+  background: linear-gradient(0deg, #62cdd9, #60f0d6);
+}
+button.invite:hover {
+  color: #62cdd9;
+  background: transparent;
+  box-shadow: none;
+}
+button.invite:before,
+button.invite:after {
+  content: "";
+  position: absolute;
+  top: 0;
   right: 0;
-  margin-right: 15px;
+  height: 2px;
+  width: 0;
+  background: #5c8fe6;
+  box-shadow: -1px -1px 5px 0px #fff, 7px 7px 20px 0px #0003,
+    4px 4px 5px 0px #0002;
+  transition: 400ms ease all;
+}
+button.invite:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+button.invite:hover:before,
+button.invite:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
+}
+button.link {
+  display: flex;
+  border: none;
+  z-index: 1;
+  align-content: center;
+  margin: 20px;
+  width: 50%;
+  height: 100%;
+  text-align: middle;
+}
+button.link span {
+  display: flex;
+  justify-content: center;
+  font-family: "Yantramanav", sans-serif;
+  font-size: 1.5em;
+  font-weight: 400;
+}
+.custom-btn .invite {
+  height: 75px;
+  color: #000;
+  border-radius: 5px;
+  padding: 10px 25px 10px 25px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  /* background: transparent; */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  line-height: 42px;
+  border: none;
+  background: linear-gradient(0deg, #62cdd9, #60f0d6);
+}
+button.invite:hover {
+  color: #62cdd9;
+  background: transparent;
+  box-shadow: none;
+}
+button.invite:before,
+button.invite:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #5c8fe6;
+  box-shadow: -1px -1px 5px 0px #fff, 7px 7px 20px 0px #0003,
+    4px 4px 5px 0px #0002;
+  transition: 400ms ease all;
+}
+button.invite:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+button.invite:hover:before,
+button.invite:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
 }
 </style>
