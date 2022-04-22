@@ -32,6 +32,8 @@
       </p>
       </button>
       </router-link>
+      <input v-if="url" type="text" placeholder="Enter email or phone number to invite a friend">
+      <button class="custom-btn"   v-if="url" @click="alert">Send your link</button>
     </div>
   </div>
 </template>
@@ -67,6 +69,9 @@ export default {
       });
     });
   },
+  alert() {
+    alert("Your invite has been sent!");
+  }
   },
   data() {
     return {
